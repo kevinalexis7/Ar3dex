@@ -13,12 +13,12 @@
                 <h3 class="box__card--title">Perfil de usuario</h3>
               </div>
               <div class="card-body">
-                <form action="/usuarios/actualizarPerfil/<%= id %>?_method=PUT" class="row" method="POST" enctype="multipart/form-data">
+                <form action="/usuarios/actualizarPerfil/<%= user.id %>?_method=PUT" class="row" method="POST" enctype="multipart/form-data">
                   <div class="col-12 col-md-6 mb-3">
                     <label for="name" class="form__label">Nombre</label>
                     <input type="text" id="name" name="name"
                       class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>"
-                      value="<%= name %>" />
+                      value="<%= user.name %>" />
                     <small class="text-danger ms-2">
                         <%= locals.errors && errors.name ? errors.name.msg : null %>
                     </small>
@@ -27,7 +27,7 @@
                     <label for="surname" class="form__label">Apellido</label>
                     <input type="text" name="surname"
                       class="form-control <%= locals.errors && errors.surname ? 'is-invalid' : null %>" id="surname"
-                      value="<%= surname %>" />
+                      value="<%= user.surname %>" />
                       <small class="text-danger ms-2">
                         <%= locals.errors && errors.surname ? errors.surname.msg : null %>
                       </small>
@@ -36,7 +36,7 @@
                     <label for="email" class="form__label">Correo electrónico</label>
                     <input type="email" name="email"
                       class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>" id="email"
-                      placeholder="Completa tu email" value="<%= email %>" />
+                      placeholder="Completa tu email" value="<%= user.email %>" />
                       <small class="text-danger ms-2">
                         <%= locals.errors && errors.email ? errors.email.msg : null %>
                       </small>
@@ -44,48 +44,49 @@
                   <div class="col-12 col-md-6 mb-3">
                     <label for="province" class="form__label">Provincia</label>
                     <input type="text" name="province" class="form-control <%= locals.errors && errors.province ? 'is-invalid' : null %>" id="province"
-                      value="<%= province || null %>" />
+                      value="<%= user.address && user.address.province ? user.address.province : null %>" />
                       <small class="text-danger ms-2">
                         <%= locals.errors && errors.province ? errors.province.msg : null %>
                       </small>
                   </div>
                   <div class="col-12 col-md-6 mb-3">
                     <label for="city" class="form__label">Ciudad</label>
-                    <input type="text" name="city" class="form-control <%= locals.errors && errors.city ? 'is-invalid' : null %>" id="city" value="<%= city || null %>" />
+                    <input type="text" name="city" class="form-control <%= locals.errors && errors.city ? 'is-invalid' : null %>" id="city" 
+                    value="<%= user.address && user.address.city ? user.address.city : null %>" />
                     <small class="text-danger ms-2">
                       <%= locals.errors && errors.city ? errors.city.msg : null %>
                     </small>
                   </div>
 
                   <div class=" mb-3">
-                    <label for="address" class="form__label">Dirección</label>
-                    <input type="text" name="address" class="form-control <%= locals.errors && errors.address ? 'is-invalid' : null %>" id="addres" value="<%= address || null %>" />
+                    <label for="street" class="form__label">Calle</label>
+                    <input type="text" name="street" class="form-control <%= locals.errors && errors.street ? 'is-invalid' : null %>" id="street" 
+                    value="<%= user.address && user.address.street ? user.address.street : null %>" />
                     <small class="text-danger ms-2">
-                      <%= locals.errors && errors.address ? errors.address.msg : null %>
+                      <%= locals.errors && errors.street ? errors.street.msg : null %>
                     </small>
                   </div>
 
-                  <div class="col-12 col-md-6 mb-3 w-100 mt-3 ">
-                    <div class="form-check text-dark">
-                      <input class="form-check-input" value=0 type="radio" name="userCategory" id="userCategory1" <%
-                        if (userCategory == 0) { %>
-                      checked
-                      <% } %> >
-                        <label class="form-check-label" for="userCategory1">
-                          Solo Comprar
-                        </label>
-                    </div>
-                    <div class="form-check text-dark">
-                      <input class="form-check-input" value=1 type="radio" name="userCategory" id="userCategory2" <%
-                        if (userCategory == 1) { %>
-                      checked
-                      <% } %> >
-                        <label class="form-check-label" for="userCategory2">
-                          Comprar y Vender
-                        </label>
-                    </div>
+                  <div class="col-12 col-md-6 mb-3">
+                    <label for="postal_code" class="form__label">Codigo postal</label>
+                    <input type="text" name="postal_code" class="form-control <%= locals.errors && errors.postal_code ? 'is-invalid' : null %>" id="postal_code"
+                      value="<%= user.address && user.address.postal_code ? user.address.postal_code : null %>" />
+                      <small class="text-danger ms-2">
+                        <%= locals.errors && errors.postal_code ? errors.postal_code.msg : null %>
+                      </small>
+                  </div>
+                  <div class="col-12 col-md-6 mb-3">
+                    <label for="phone" class="form__label">Telefono</label>
+                    <input type="text" name="phone" class="form-control <%= locals.errors && errors.phone ? 'is-invalid' : null %>" id="phone" 
+                    value="<%= user.phone || null %>" />
+                    <small class="text-danger ms-2">
+                      <%= locals.errors && errors.phone ? errors.phone.msg : null %>
+                    </small>
                   </div>
 
+                  <!-- <figure class="product-box_image">
+                    <img src="/images/users/<%=  user.image %>" alt="imagen del usuario">
+                  </figure> -->
 
                   <div class="mt-3 text-center">
                     <label class="boton-guardarCambios" for="userImage">Cambiar imagen</label>

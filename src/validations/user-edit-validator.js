@@ -1,6 +1,6 @@
 const { check, body } = require("express-validator");
-const { leerJSON } = require("../data");
-
+// const { leerJSON } = require("../src/data");
+const User=require('../database/models/user')
 module.exports = [
     check('name')
         .notEmpty().withMessage('El nombre es obligatorio').bail()
@@ -16,22 +16,16 @@ module.exports = [
         .isAlpha('es-ES', {ignore:' '}).withMessage('Sólo caracteres alfabéticos').bail(),
     body('email')
         .notEmpty().withMessage('El email es obligatorio').bail()
-        .isEmail().withMessage('el Email tiene un formato inválido')
-        .custom((value, {req}) => {
-            const users = leerJSON('users');
-            const user = users.find(user => user.email === value.trim());
-            const usuario = users.find(user => user.id === req.session.userLogin.id);
-
-            console.log(usuario)
-
-            if(user){
-                if(usuario !== value.trim()){
-                    
-                    return true
-                }
-            }return false
-        }).withMessage('El email ya se encutra registrado'),
-    check('address')
+        .isEmail().withMessage('el Email tiene un formato inválido'),
+        // .custom(async (value, { req }) => {
+        //     const existingUser = await User.findOne({ email: value.trim() });
+        //     const currentUser = req.session.userLogin ? await User.findById(req.session.userLogin.id) : null;
+      
+        //     console.log(currentUser);
+      
+        //     return !existingUser || (currentUser && currentUser.email === value.trim());
+        // }).withMessage('El email ya se encuentra registrado'),
+    check('street')
         .isLength({
         max : 25
         }).withMessage('Máximo 25 caracteres'),
