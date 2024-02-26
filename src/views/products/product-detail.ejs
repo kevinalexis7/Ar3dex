@@ -32,19 +32,15 @@
                 </div>
                 <h4 class="detalleProducto__main__articule__variaciones">VARIACIONES</h4>
                 <div class="detalleProducto__main__articule__div__nombre-y-imagen__div__carrusel">
-                    <% if (mainImage && mainImage.length > 0) { %>
-                        <img src="/images/products/<%=  mainImage || 'default-image.webp' %>" alt="...">
-                        <% if (mainImage.length > 1) { %>
-                            <img src="/images/products/<%=  mainImage || 'default-image.webp' %>" alt="...">
-                        <% } %>
-                        <% if (mainImage.length > 2) { %>
-                            <img src="/images/products/<%=  mainImage || 'default-image.webp' %>" alt="...">
-                        <% } %>
+                    <% if (images && images.length > 0) { %>
+                        <% images.forEach(image => { %>
+                            <img src="/images/products/<%= image.name || 'default-image.webp' %>" alt="...">
+                        <% }) %>
                     <% } else { %>
-                        <img src="/images/products/<%= mainImage || 'default-image.webp' %>" alt="...">
+                        <img src="/images/products/default-image.webp" alt="...">
                     <% } %>
                 </div>
-                 
+                
                 <a href="/carrito">
                 <button class="detalleProducto__main__articule__div__precios__btnAgregarCarrito">
                     AGREGAR AL CARRITO </button>

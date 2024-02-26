@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
     description: {type: DataTypes.TEXT, allowNull: false},
     offer: { type: DataTypes.BOOLEAN, allowNull: false},
     discount: { type: DataTypes.INTEGER, allowNull: false},
-    mainImage: { type: DataTypes.STRING, allowNull: false},
+    mainImage: { type: DataTypes.STRING, allowNull: true},
     categoryId: DataTypes.INTEGER
   }, {
     sequelize,
