@@ -30,7 +30,6 @@ module.exports = async (req, res) => {
                 existsSync("public/images/products/" + image.name) &&
                 unlinkSync("public/images/products/" + image.name);
             }
-            console.log('>>>>>>>>>>>>>>>>>>>>>>>' + product.mainImage)
             mainImage &&
                 existsSync("public/images/products/" + product.mainImage) &&
                 unlinkSync("public/images/products/" + product.mainImage);
