@@ -7,10 +7,14 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 module.exports = {
     index: (req,res) => {
 
-        db.Product.findAll()
+        db.Product.findAll({
+            where: {
+                offer: true
+            }
+        })
         .then(products => {
             return res.render('index', {
-                products: products.filter(product => product.offer === true),
+                products,
                 toThousand
         })
         
@@ -24,7 +28,9 @@ module.exports = {
     },
     admin : async(req,res) => {
         try {
-            const products = await db.Product.findAll();
+            const products = await db.Product.findAll({
+                include: ['category']
+            });
             return res.render('dashboard', {
                 products,
                 
