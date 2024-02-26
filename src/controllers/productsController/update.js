@@ -25,29 +25,7 @@ module.exports = async (req, res) => {
             return res.status(404).send("Producto no encontrado");
         }
 
-        if (images) {
-            existsSync("public/images/" + product.images) &&
-            unlinkSync("public/images/" + product.images);
-        }
-
-        await db.Product.update(
-            {
-                name: name.trim(),
-                price,
-                description: description.trim(),
-                offer: +offer,
-                discount,
-                mainImage: mainImage ? mainImage[0].filename : null,
-                categoryId
-            },
-            {
-                where: {
-                    id,
-                }
-            },
-        );
-
-        if (images) {
+        if (images && images.length > 0) {
             for (const image of product.images) {
                 existsSync("public/images/" + image.file) &&
                 unlinkSync("public/images/" + image.file);
@@ -69,11 +47,26 @@ module.exports = async (req, res) => {
             await db.Image.bulkCreate(imagesDB, {
                 validate: true
             });
-
-            return res.redirect("/admin");
-        } else {
-            return res.redirect("/admin");
         }
+
+        await db.Product.update(
+            {
+                name: name.trim(),
+                price,
+                description: description.trim(),
+                offer: +offer,
+                discount,
+                mainImage: mainImage ? mainImage[0].filename : product.mainImage,
+                categoryId
+            },
+            {
+                where: {
+                    id,
+                }
+            },
+        );
+
+        return res.redirect("/admin");
     } catch (error) {
         console.error(error);
         return res.status(500).send("Internal Server Error");
