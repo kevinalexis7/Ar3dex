@@ -43,7 +43,11 @@ module.exports = async (req, res) => {
 
             const imagesDB = images.map(image => {
                 return {
+<<<<<<< HEAD
                     name: image.filename,
+=======
+                    name: image.name,
+>>>>>>> 8723d93a3ae5753c4f954bcfd3d45b4da9f04094
                     id_product: product.id
                 };
             });
