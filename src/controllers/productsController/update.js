@@ -30,9 +30,10 @@ module.exports = async (req, res) => {
                 existsSync("public/images/products/" + image.name) &&
                 unlinkSync("public/images/products/" + image.name);
             }
+            console.log('>>>>>>>>>>>>>>>>>>>>>>>' + product.mainImage)
             mainImage &&
-                existsSync("public/images/products/" + mainImage.filename) &&
-                unlinkSync("public/images/products/" + mainImage.filename);
+                existsSync("public/images/products/" + product.mainImage) &&
+                unlinkSync("public/images/products/" + product.mainImage);
             
 
             await db.Image.destroy({
