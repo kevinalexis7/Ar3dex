@@ -27,8 +27,8 @@ module.exports = async (req, res) => {
 
         if (images && images.length > 0) {
             for (const image of product.images) {
-                existsSync("public/images/" + image.file) &&
-                unlinkSync("public/images/" + image.file);
+                existsSync("public/images/products" + image.name) &&
+                unlinkSync("public/images/products" + image.name);
             }
 
             await db.Image.destroy({
@@ -39,7 +39,7 @@ module.exports = async (req, res) => {
 
             const imagesDB = images.map(image => {
                 return {
-                    file: image.filename,
+                    name: image.name,
                     id_product: product.id
                 };
             });
