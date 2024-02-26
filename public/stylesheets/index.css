@@ -71,10 +71,15 @@ body {
 
 }
 
+.product-box_image{
+    height: 316px;
+}
+
 .product-box_data{
     
     color: white;
     background-color: var(--colorVioleta);
+    height: 100%;
 }
 
 .priceanddiscount{
