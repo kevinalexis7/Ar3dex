@@ -69,9 +69,10 @@ body {
     font-size: 1.5em;
     background-color: rgb(251, 249, 251);
 
-  }
+}
 
 .product-box_data{
+    
     color: white;
     background-color: var(--colorVioleta);
 }
