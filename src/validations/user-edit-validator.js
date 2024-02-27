@@ -16,21 +16,21 @@ module.exports = [
         .isAlpha('es-ES', {ignore:' '}).withMessage('Sólo caracteres alfabéticos').bail(),
     body('email')
         .notEmpty().withMessage('El email es obligatorio').bail()
-        .isEmail().withMessage('el Email tiene un formato inválido')
-        .custom((value, {req}) => {
-            const users = leerJSON('users');
-            const user = users.find(user => user.email === value.trim());
-            const usuario = users.find(user => user.id === req.session.userLogin.id);
+        .isEmail().withMessage('el Email tiene un formato inválido'),
+        // .custom((value, {req}) => {
+        //     const users = leerJSON('users');
+        //     const user = users.find(user => user.email === value.trim());
+        //     const usuario = users.find(user => user.id === req.session.userLogin.id);
 
-            console.log(usuario)
+        //     console.log(usuario)
 
-            if(user){
-                if(usuario !== value.trim()){
+        //     if(user){
+        //         if(usuario !== value.trim()){
                     
-                    return true
-                }
-            }return false
-        }).withMessage('El email ya se encutra registrado'),
+        //             return true
+        //         }
+        //     }return false
+        // }).withMessage('El email ya se encutra registrado'),
     check('address')
         .isLength({
         max : 25

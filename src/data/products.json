@@ -190,18 +190,5 @@
       "description": "Estatuilla",
       "offer": 0,
       "discount": 0
-   },
-   {
-      "id": 15,
-      "name": "Avióncito",
-      "price": "5",
-      "mainImage": null,
-      "images": [
-         "1708920681005_biplano-2.jpg"
-      ],
-      "category": "3",
-      "description": "Biplano",
-      "offer": "0",
-      "discount": "0"
    }
 ]
