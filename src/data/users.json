@@ -40,15 +40,15 @@
    },
    {
       "id": "4",
-      "name": "fulano",
-      "surname": "mengano",
-      "email": "fulano123@gmail.com",
+      "name": "Admin",
+      "surname": "Profe",
+      "email": "admin@gmail.com",
       "password": "$2a$10$esqvRRAeJECD3maKZKfrluVE8/BNFeOa60MGBQiUn4uUV3ufCxswO",
       "userCategory": "false",
       "province": "",
       "city": "",
       "address": "",
       "userImage": "User_1705674140289.png",
-      "role": "user"
+      "role": "admin"
    }
 ]
