@@ -1,3 +1,4 @@
+const { Op } = require("sequelize")
 const db = require('../database/models')
 
 
@@ -39,24 +40,23 @@ module.exports = {
             console.error(error);
         }
     },
-    searchAdmin: async (req, res) => {
-        try {
-            const { keyword } = req.query;
-            const products = await db.Product.findAll({
-                where: {
-                    [db.Sequelize.Op.or]: [
-                        db.Sequelize.where(db.Sequelize.fn('LOWER', db.Sequelize.col('name')), 'LIKE', `%${keyword.toLowerCase()}%`),
-                        db.Sequelize.where(db.Sequelize.fn('LOWER', db.Sequelize.col('category')), 'LIKE', `%${keyword.toLowerCase()}%`)
-                    ]
+    searchAdmin : (req,res) => {
+
+        const {keyword} = req.query;
+        db.Product.findAll({
+            where : {
+                name : {
+                    [Op.substring] : keyword
                 }
-            });
-            return res.render('dashboard', {
-                products,
-                keyword
-            });
-        } catch (error) {
-            console.error(error);
-            return res.status(500).send('Error interno del servidor');
-        }
+            },
+            include : ['category','images']
+        })
+            .then(result => {
+                return res.render('dashboard', {
+                    products : result,
+                    keyword
+                })
+            })
+            .catch(error => console.log(error))
     }
 }

@@ -1,7 +1,7 @@
 const db = require('../../database/models');
 const { Op } = require('sequelize');
 
-//const { leerJSON } = require('../../data')
+
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 
@@ -12,7 +12,7 @@ module.exports = (req,res) => {
     db.Product.findAll({
         where : { [Op.or]:
             [
-                {name : {[Op.substring] : keyword }},
+                {name : {[Op.substring] : `%${keyword}%` }},
                 {categoryId: keyword }
             ]
         }

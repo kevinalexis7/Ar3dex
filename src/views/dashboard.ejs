@@ -14,7 +14,16 @@
                 <div class="col-12 col-md-15 mx auto">
                     <div class="card">
                         <div class="card-header card-header-custom d-flex justify-content-between">
-                            <h4 class="cart-title">Figuras</h4>
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb">
+                                    <li class="breadcrumb-item" ><a class="text-primary" href="/admin">Productos</a></li>
+                                    <% if (locals.keyword) { %>
+                                        <li class="breadcrumb-item active" aria-current="page" style="color: white;">resultado para: <%=
+                                                keyword %>
+                                        </li>
+                                        <% } %>
+                                </ol>
+                            </nav>
                             <a class="btn btn-primary" href="/productos/agregar">Nuevo</a>
                         </div>
                         <div class="card-body">
