@@ -57,6 +57,30 @@ body {
     rgba(128, 30, 106, 1) 100%
   );
   
+
+}
+
+.search-bar button:hover {
+  background: linear-gradient(
+    -180deg,
+    rgba(0, 0, 0, 1) 8%,
+    rgb(247, 104, 216) 100%
+  );
+  
+
+}
+
+
+.div_ul:hover{
+  background: linear-gradient(
+    -180deg,
+    rgba(0, 0, 0, 0.6) 8%,
+    rgb(247, 104, 216) 100%
+);
+}
+
+.li_header:hover {
+color: white;
 }
 
 /* header-admin */

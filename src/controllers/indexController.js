@@ -44,12 +44,15 @@ module.exports = {
 
         const {keyword} = req.query;
         db.Product.findAll({
-            where : {
-                name : {
-                    [Op.substring] : keyword
-                }
+            where: {
+                [Op.or]: [
+                    { name: { [Op.substring]: `%${keyword}%` } },
+                    {
+                        '$category.name$': { [Op.substring]: `%${keyword}%` }
+                    }
+                ]
             },
-            include : ['category','images']
+            include: ['category']
         })
             .then(result => {
                 return res.render('dashboard', {

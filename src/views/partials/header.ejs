@@ -18,35 +18,35 @@
     <nav class="nav_bar">
       <ul>
         <div class="div_ul">
-          <li><a href="/">Inicio</a></li>
+          <li><a class="li_header" href="/">Inicio</a></li>
         </div>
         <div class="div_ul">
-          <li><a href="/productos/coleccion">Colección</a></li>
+          <li><a class="li_header" href="/productos/coleccion">Colección</a></li>
         </div>
 
 
         <% if (locals.userLogin) { %>
           <% if (userLogin.role === 2) { %>
             <div class="div_ul">
-              <li><a href="/admin">Dashboard</a></li>
+              <li><a class="li_header" href="/admin">Dashboard</a></li>
             </div>
           <% }else{%>
 
           <div class="div_ul">
-            <li><a href="/usuarios/perfil/<%= userLogin.id %>">Usuario</a></li>
+            <li><a class="li_header" href="/usuarios/perfil/<%= userLogin.id %>">Usuario</a></li>
           </div>
 
         <% } %>
         <div class="div_ul">
-          <li><a href="/usuarios/salir">Salir</a></li>
+          <li><a class="li_header" href="/usuarios/salir">Salir</a></li>
         </div>
 
         <% }else{ %>
         <div class="div_ul">
-          <li><a href="/usuarios/ingreso">Ingreso</a></li>
+          <li><a class="li_header" href="/usuarios/ingreso">Ingreso</a></li>
         </div>
         <div class="div_ul">
-          <li><a href="/usuarios/registro">Registro</a></li>
+          <li><a class="li_header" href="/usuarios/registro">Registro</a></li>
         </div>
       <% } %>
 

@@ -67,7 +67,7 @@ body {
 }
 .product-box {
     font-size: 1.5em;
-    background-color: rgb(251, 249, 251);
+    background-color: rgb(251, 249, 251, 0.4) ;
 
 }
 
@@ -95,7 +95,8 @@ body {
 }
 
 .index__main__section--categories img {
-    width: 100%;
+    width: 90%;
+    height: 75%;
 }
 .index__main__section__article--category--name {
     text-align: center;
