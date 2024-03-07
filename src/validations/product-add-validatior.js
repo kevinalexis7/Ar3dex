@@ -3,8 +3,12 @@ const {check, body} = require('express-validator');
 module.exports= [ 
     check('name')
         .notEmpty().withMessage('El nombre es obligatorio').bail(),
-    check('price')
-        .notEmpty().withMessage('El precio es obligatorio').bail(),
+        check('price')
+        .notEmpty().withMessage('El precio es obligatorio').bail()
+        .isNumeric().withMessage('Este campo solo permite números').bail(),
+    check('discount')
+        .notEmpty().withMessage('El precio es obligatorio').bail()
+        .isNumeric().withMessage('Este campo solo permite números').bail(),
     check('categoryId')
         .notEmpty().withMessage('Se require especificar una categoría').bail(),
     body('mainImage')

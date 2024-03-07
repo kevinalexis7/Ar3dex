@@ -1,9 +1,12 @@
 const { existsSync, unlinkSync } = require("fs");
 const db = require('../../database/models');
+const { validationResult } = require("express-validator");
+
 
 module.exports = async (req, res) => {
-    try {
-        const mainImage = req.files.mainImage;
+
+    const errors = validationResult(req);
+     const mainImage = req.files.mainImage;
         const images = req.files.images;
 
         const {
@@ -16,7 +19,9 @@ module.exports = async (req, res) => {
         } = req.body;
 
         const { id } = req.params;
-
+    if(errors.isEmpty()){
+        try {
+       
         const product = await db.Product.findByPk(id, {
             include: ['images']
         });
@@ -75,4 +80,31 @@ module.exports = async (req, res) => {
         console.error(error);
         return res.status(500).send("Internal Server Error");
     }
+}else {
+    if(mainImage){
+        existsSync(`public/images/products/${mainImage[0].filename}`) &&
+        unlinkSync(`public/images/products/${mainImage[0].filename}`);
+        }
+    if (images) {
+      images.forEach((image) => {
+        existsSync("public/images/products/" + image) &&
+          unlinkSync("public/images/products/" + image);
+      });
+    }
+
+    Promise.all([
+        db.Category.findAll({ order: ['name'] }),
+        db.Product.findByPk(req.params.id)
+    ])
+        .then(([categories, products]) => {
+
+            return res.render('products/product-edit',{
+                ...products.dataValues,
+                old: req.body,
+                categories,
+                errors : errors.mapped()
+            })
+        })
+        .catch(error => console.log(error))
+  }
 };
