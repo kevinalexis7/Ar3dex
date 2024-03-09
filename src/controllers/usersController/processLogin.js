@@ -20,7 +20,7 @@ module.exports = (req,res) => {
                 }
 
                 remember && res.cookie('AR3DEX4EV3R_user', req.session.userLogin, {
-                    maxAge : 1000 * 60 * 2
+                    maxAge : 1000 * 60 * 10
                 })
                 console.log('LOGIN' + req.session.userLogin)
                 return res.redirect('/')
