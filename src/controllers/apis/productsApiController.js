@@ -1,6 +1,7 @@
 const db = require('../../database/models');
 
 
+
 const getAllProducts = async(req,res) => {
     try {
         const { count, rows } =  await db.Product.findAndCountAll({
@@ -76,7 +77,14 @@ const getOneProduct = async (req,res) => {
 
 
 
+
+
+
+
+
+
 module.exports= {
     getAllProducts,
-    getOneProduct
+    getOneProduct,
+    
 }
