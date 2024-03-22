@@ -5,9 +5,8 @@
 }
 
 .form__box {
-    
     width: 100%;
-    
+    margin-top: 5px;
 }
 
 .form__box__2 {
@@ -67,8 +66,16 @@
     padding: 8px;
     border-radius: 15px;
     border: 1px solid #c0c0c0;
-    margin-top: 10px;
+    /* margin-top: 10px; */
     box-shadow: 2px 2px 5px #9124c7;
+}
+.invalidForm{
+    border: 1px solid #5c5c5c;
+    background-color: #ff000006;
+    box-shadow: 2px 2px 5px #e40000;
+}
+.invalidForm--label{
+    color: #c20000;
 }
 
 .boton-guardarCambios{
@@ -80,5 +87,9 @@
     padding: 5px;
     color: white;
 }
+
+.form-register label, .form-register small{
+    margin-left: 10px;
+} 
 
 
