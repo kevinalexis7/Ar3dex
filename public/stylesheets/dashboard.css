@@ -7,3 +7,7 @@
 .dashboard__main__card--custom-text{
     text-shadow: 0px 0px 2px #FFF;
 }
+.form-floating{ 
+    --bs-body-bg : #ced4da;
+    --bs-body-color-rgb: rgb(0, 0, 0);
+}
