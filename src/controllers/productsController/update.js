@@ -82,6 +82,9 @@ module.exports = async (req, res) => {
           unlinkSync("public/images/products/" + image);
       });
     }
+    const product = db.Product.findByPk(id, {
+      include : ['category']
+  })
     const categories = db.Category.findAll({
       order: [["name"]],
     });

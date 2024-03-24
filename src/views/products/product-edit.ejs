@@ -95,6 +95,7 @@
                                     <textarea name="description" class="form-control bg-dark-subtle <%= (locals.errors &&  errors.description) && 'is-invalid' %>" id="description" style="height: 200px;"><%= locals.old ? old.description : description %></textarea>
                                     <label for="description">Modifica la descripción</label>
                                   </div>
+                                  <small class="text-danger ms-2"><%= (locals.errors && errors.description) && errors.description.msg %></small>
                             </div>
                            
                             <div class="col-12 d-flex justify-content-end">
