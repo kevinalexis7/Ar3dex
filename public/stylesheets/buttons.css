@@ -7,11 +7,11 @@
 .button__primary {
     background-color: var(--colorAzul);
     color:white;
-    width: 40%;
+    width: 45%;
 }
 
 .button__segundo {
     background-color: var(--colorGris);
     color:white;
-    width: 40%;
+    width: 45%;
 }

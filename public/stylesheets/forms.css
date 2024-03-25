@@ -2,11 +2,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    color: #707070;
 }
 
 .form__box {
     width: 100%;
-    margin-top: 5px;
 }
 
 .form__box__2 {
@@ -49,7 +49,6 @@
 }
 
 .form__label {
-    margin-top: 10px;
     color:var(--colorAzul);
 }
 
@@ -69,14 +68,6 @@
     /* margin-top: 10px; */
     box-shadow: 2px 2px 5px #9124c7;
 }
-.invalidForm{
-    border: 1px solid #5c5c5c;
-    background-color: #ff000006;
-    box-shadow: 2px 2px 5px #e40000;
-}
-.invalidForm--label{
-    color: #c20000;
-}
 
 .boton-guardarCambios{
     background: linear-gradient(90deg, rgba(47, 7, 67, 0.6) 0%, rgba(98, 2, 248, 0.6) 50%, rgba(0, 161, 255, 0.6) 100%);
@@ -88,8 +79,29 @@
     color: white;
 }
 
-.form-register label, .form-register small{
+.form-user label, .form-user small{
     margin-left: 10px;
-} 
+    line-height: 0px;
+}
 
+.form-user small{
+    visibility: hidden;
+    line-height: 1px;
+}
 
+.exclamation-popover{
+    border-radius: 100%;
+    border-collapse: separate;
+    border:1px solid #b440ee;
+    box-shadow: 1px 1px 3px #b440ee;
+    background-color: rgb(108, 108, 108);
+    font-size: 20px;
+}
+.invalidForm{
+    border: 1px solid #7b7b7b;
+    background-color: #ff000006;
+    box-shadow: 2px 2px 5px #e40000;
+}
+.invalidForm--label{
+    color: #ff3030;
+}

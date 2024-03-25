@@ -1,9 +1,8 @@
 
 .box__card--title {/*Titulo*/
-    
     text-align: center;
     color: var(--colorAzul);
-    font-size: 3vh;
+    text-shadow: 2px 2px 5px rgba(128, 128, 128, 0.675);
 }
 
 .link {/*Restablecer contraseña e Ingrese*/
@@ -11,9 +10,9 @@
 }
 
 .redes-sociales{
-    margin-top: 20px;
+    margin-top: 7px;
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
     
 }
 

@@ -1,39 +1,62 @@
 console.log("register validator success!");
 const exRegEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+const exRegPassword = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/
+
+//para el popover
+const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
 
 const $ = (id) => document.getElementById(id);
-    //añade las clases que marcan los errores
-const addClassesInvalid = function(input) {
-    input.previousElementSibling.classList.add('invalidForm--label')
-    input.classList.add('invalidForm')}
-    
-    //Quita el color rojo de los campos y labels en foco
-function removeClasses(){ 
-    for (let i = 0; i < $('form-register').elements.length - 3; i++) {
-        const inputName = $('form-register').elements[i].name;
-        $(inputName).addEventListener("focus", function () {
-            this.classList.remove('invalidForm')
-            this.previousElementSibling.classList.remove('invalidForm--label')
-        });
 
+    //checkea el email
+const checkEmail = async (email) => {
+    try {
 
+        const response = await fetch('http://http://localhost:3000/apis/users/check-email?email=' + email);
+        const result = await response.json();
+
+        return result.isRegisted
+        
+    } catch (error) {
+        console.error
     }
 }
+    //añade las clases que marcan los errores
+const ClassesInvalid = function(input, msgError) {
+    
+    const inputLabel = document.querySelector(`label[for=${input.id}]`)
+
+    inputLabel.classList.add('invalidForm--label')
+    input.classList.add('invalidForm')
+    $(`error-${input.id}`).innerHTML = msgError
+    $(`error-${input.id}`).style.visibility = "visible"
+}
+    
+//Quita el color rojo de los campos y labels en foco
+for (let i = 0; i < $('form-register').elements.length - 3; i++) {
+    
+    const inputName = $('form-register').elements[i].name;
+    
+    $(inputName).addEventListener("focus", function () {
+
+    const inputLabel = document.querySelector(`label[for=${this.id}]`)
+
+    this.classList.remove('invalidForm')
+    inputLabel.classList.remove('invalidForm--label')
+    $(`error-${this.id}`).innerHTML = "no small"
+    $(`error-${this.id}`).style.visibility = "hidden"
+    });
+}
+
+
 //name
 $("name").addEventListener("blur", function () {
     switch (true) {
         case !this.value:
-            addClassesInvalid(this);
-            $('error-name').innerHTML = "El nombre es obligatorio"
+            ClassesInvalid(this, "El nombre es obligatorio");
             break;
         case this.value.length < 3:
-            addClassesInvalid(this);
-            $('error-name').innerHTML = "Mínimo 3 caracteres"
-            break;
-        default:
-            this.previousElementSibling.classList.remove('invalidForm--label')
-            this.classList.remove('invalidForm')
-            $('error-name').innerHTML = null
+            ClassesInvalid(this, "Mínimo 3 caracteres");
             break;
     }
 });
@@ -42,17 +65,10 @@ $("name").addEventListener("blur", function () {
 $("surname").addEventListener("blur", function () {
     switch (true) {
         case !this.value:
-            addClassesInvalid(this);
-            $('error-surname').innerHTML = "El apellido es obligatorio"
+            ClassesInvalid(this,"El apellido es obligatorio");
             break;
         case this.value.length < 3:
-            addClassesInvalid(this);
-            $('error-surname').innerHTML = "Mínimo 3 caracteres"
-            break;
-        default:
-            this.previousElementSibling.classList.remove('invalidForm--label')
-            this.classList.remove('invalidForm')
-            $('error-surname').innerHTML = null
+            ClassesInvalid(this, "Mínimo 3 caracteres");
             break;
     }
 });
@@ -61,17 +77,10 @@ $("surname").addEventListener("blur", function () {
 $("email").addEventListener("blur", function () {
     switch (true) {
         case !this.value:
-            addClassesInvalid(this);
-            $('error-email').innerHTML = "El email es obligatorio"
+            ClassesInvalid(this,"El email es obligatorio");
             break;
         case !exRegEmail.test(this.value):
-            addClassesInvalid(this);
-            $('error-email').innerHTML = "El mail tiene un formato inválido"
-            break;
-        default:
-            this.previousElementSibling.classList.remove('invalidForm--label')
-            this.classList.remove('invalidForm')
-            $('error-email').innerHTML = null
+            ClassesInvalid(this, "No es un formato de email válido");
             break;
     }
 });
@@ -80,21 +89,14 @@ $("email").addEventListener("blur", function () {
 $("password").addEventListener("blur", function () {
     switch (true) {
         case !this.value:
-            addClassesInvalid(this);
-            $('error-password').innerHTML = "La contraseña es obligatoria"
+            ClassesInvalid(this, "La contraseña es obligatoria");
+            $('password-badge').firstElementChild.classList.add('invalidForm')
+            $('password-badge').firstElementChild.style.backgroundColor = 'black'
             break;
-        case this.value.length < 8:
-            addClassesInvalid(this);
-            $('error-password').innerHTML = "Mínimo 3 caracteres"
-            break;
-        case this.value.length > 12:
-            addClassesInvalid(this);
-            $('error-password').innerHTML = "Maximo 12 caracteres"
-            break;
-        default:
-            this.previousElementSibling.classList.remove('invalidForm--label')
-            this.classList.remove('invalidForm')
-            $('error-password').innerHTML = null
+            case !exRegPassword.test(this.value):
+            ClassesInvalid(this, "La contraseña es vulnerable");
+            $('password-badge').firstElementChild.classList.add('invalidForm')
+            $('password-badge').firstElementChild.style.backgroundColor = 'black'
             break;
     }
 });
@@ -103,21 +105,10 @@ $("password").addEventListener("blur", function () {
 $("passwordConfirm").addEventListener("blur", function () {
     switch (true) {
         case !this.value:
-            addClassesInvalid(this);
-            $('error-passwordConfirm').innerHTML = "La contraseña es obligatoria"
+            ClassesInvalid(this, "Las contraseñas deben coincidir");
             break;
-        case this.value.length < 8:
-            addClassesInvalid(this);
-            $('error-passwordConfirm').innerHTML = "Las contraseñas deben coincidir"
-            break;
-        case this.value.length > 12:
-            addClassesInvalid(this);
-            $('error-passwordConfirm').innerHTML = "Las contraseñas deben coincidir"
-            break;
-        default:
-            this.previousElementSibling.classList.remove('invalidForm--label')
-            this.classList.remove('invalidForm')
-            $('error-passwordConfirm').innerHTML = null
+        case this.value !== $('password').value:
+            ClassesInvalid(this, "Las contraseñas deben coincidir");
             break;
     }
 });
@@ -140,7 +131,6 @@ $("form-register").addEventListener("submit", function (e) {
 if (!error) {
     this.onsubmit()
 }else{
-    removeClasses()
     $('msg-error').hidden = false
 }
    

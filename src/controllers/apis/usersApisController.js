@@ -1,8 +1,11 @@
-const { getUserByEmail } = require("../../services/user")
+const { getUserByEmail } = require("../../services/user");
+const createError = require('http-errors');
 
 const checkEmail = async (req,res) => {
     try {
         
+        if(!req.query.email) throw createError(400, 'Se esperaba un email')
+
         const user = await getUserByEmail(req.query.email)
 
         return res.status(200).json({
