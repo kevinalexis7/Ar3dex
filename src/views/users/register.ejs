@@ -34,21 +34,22 @@
                 <small class="text-danger" id="error-email"><%= (locals.errors &&  errors.email) ? errors.email.msg : "sin error"%></small>
             </div>
            
-            <div class="form__box position-relative">
+            <div class="form__box form__box--position">
                 <label class="form__label" for="password">Contraseña<span id="password-badge" class="badge ps-1" tabindex="2" 
                     data-bs-toggle="popover" 
                     data-bs-trigger="hover focus" 
                     data-bs-content="La contraseña debe tener: de 8 a 16 carácteres, al menos una mayúscula, una minúscula y un carácter numérico."><i class="fa-solid fa-circle-info exclamation-popover"></i></span>
                 </label>
                 <input class="form__input" id="password" type="password" placeholder="Tu contraseña" name="password">
-                <span class="password-eye" id="password">Futuro ojito</span>
+                <span class="button-eye" id="button-eye"><i class="fa-solid fa-eye"></i></span>
                 <small
                  class="text-danger" id="error-password" ><%= (locals.errors &&  errors.password) ? errors.password.msg : "sin error" %>
                 </small>
             </div>
-            <div class="form__box">
+            <div class="form__box form__box--position">
                 <label class="form__label" for="passwordConfirm">Confirma tu contraseña</label>
                 <input class="form__input" id="passwordConfirm" type="password" placeholder="Confirma tu contraseña" name="passwordConfirm">
+                <span class="button-eye" id="button-eye"><i class="fa-solid fa-eye"></i></span>
                 <small class="text-danger" id="error-passwordConfirm"><%= (locals.errors &&  errors.passwordConfirm) ? errors.passwordConfirm.msg : "sin error" %></small>
             </div>
             <div>

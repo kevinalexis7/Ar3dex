@@ -113,6 +113,14 @@ $("passwordConfirm").addEventListener("blur", function () {
     }
 });
 
+//botones de ojito (button-eye)
+$("button-eye").addEventListener("click", function () {
+    this.firstElementChild.classList.toggle('fa-eye');
+    this.firstElementChild.classList.toggle('fa-eye-slash');
+    $("password").type = $('password').type ===  "password" ? "text" : "password"
+    $("passwordConfirm").type = $('passwordConfirm').type ===  "password" ? "text" : "password"
+});
+
 $("form-register").addEventListener("submit", function (e) {
   e.preventDefault();
 
@@ -120,13 +128,15 @@ $("form-register").addEventListener("submit", function (e) {
 
   for (let i = 0; i < this.elements.length - 2; i++) {
     if (!this.elements[i].value) {
-      error = true;
-      this.elements[i].classList.add("invalidForm");
-      this.elements[i].previousElementSibling.classList.add(
-        "invalidForm--label"
-      );
-    }
+        error = true;
+        const inputLabel = document.querySelector(`label[for=${this.elements[i].id}]`)
+          this.elements[i].classList.add("invalidForm");
+          inputLabel.classList.add("invalidForm--label");
+          $(`error-${this.elements[i].id}`).innerHTML = "Este campo es obligatorio"
+          $(`error-${this.elements[i].id}`).style.visibility = "visible"
   }
+}
+
   
 if (!error) {
     this.onsubmit()

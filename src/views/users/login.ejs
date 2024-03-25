@@ -12,6 +12,11 @@
             <div class="box__card--title">
                 <h3 class="fw-semibold">Login</h3>
             </div>
+            <div class="col-12" id="msg-error" hidden>
+                <div class="alert alert-danger mb-0">
+                  <i class="fa-solid fa-triangle-exclamation fa-xl"></i>  Todos los campos son obligatorios  
+                </div>
+            </div>
             <form action="" class="form form-user" method="post" id="form-login">
             
                 <div class="form__box">
@@ -19,12 +24,11 @@
                     <input class="form__input" id="email" type="email" placeholder="correo@correo.com" name="email">
                     <small class="text-danger ms-2" id="error-email" ><%= locals.errors && errors.email ? errors.email.msg : 'sin errores' %></small>
                 </div>
-                <div class="form__box">
-                    <label class="form__label" for="password">Contraseña</label>
-                    <div class="form__box--position">
-                        <input class="form__input" id="password" type="password" placeholder="tu contraseña" name="password"><span><i class="fa-solid fa-eye"></i></span>
-                        <small class="text-danger ms-2" id="error-password" ><%= locals.errors && errors.password ? errors.password.msg : 'sin errores' %></small>
-                    </div>
+                <div class="form__box form__box--position">
+                        <label class="form__label" for="password">Contraseña</label>
+                        <input class="form__input" id="password" type="password" placeholder="tu contraseña" name="password">
+                        <span class="button-eye" id="button-eye"><i class="fa-solid fa-eye"></i></span>
+                        <small class="text-danger" id="error-password" ><%= locals.errors && errors.password ? errors.password.msg : 'sin errores' %></small>
                 </div>
 
                 
@@ -50,6 +54,7 @@
     
     <%- include('../partials/footer') %>
     
+    <script src="/javascripts/loginValidator.js"></script>
     </body>
     </html>
     

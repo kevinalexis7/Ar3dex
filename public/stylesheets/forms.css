@@ -39,10 +39,10 @@
     position: relative;
 }
 
-.form__box--position span {
+.form__box--position .button-eye {
     position: absolute;
     right: 10px;
-    top:20px;
+    bottom:30px;
     cursor: pointer;
     color: var(--colorGris);
     
