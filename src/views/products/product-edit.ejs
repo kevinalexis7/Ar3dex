@@ -53,12 +53,12 @@
                             </div>
                             <div class="col-12 col-md-6 mb-3">
                                 <div class="form-floating">
-                                    <select name="category" class="form-select  bg-dark-subtle" id="category" aria-label="Floating label select example">
+                                    <select name="categoryId" class="form-select <%= (locals.errors && errors.categoryId)  && 'is-invalid'%>" id="categoryId" aria-label="Floating label select example">
+                                        <option value="" selected hidden></option>
                                         <% categories.forEach(category => { %>
-                                            <option value="<%= category.id %>" <%= category.id === categoryId && 'selected' %>><%= category.name %></option>
+                                          <option value="<%= category.id %>" <%= categoryId == category.id && 'selected'  %>><%= category.name %></option>
                                         <% }) %>
-
-                                    </select>
+                                      </select>
                                     <label for="category">Categoría</label>
                                 </div>
                             </div>
@@ -95,6 +95,7 @@
                                     <textarea name="description" class="form-control bg-dark-subtle <%= (locals.errors &&  errors.description) && 'is-invalid' %>" id="description" style="height: 200px;"><%= locals.old ? old.description : description %></textarea>
                                     <label for="description">Modifica la descripción</label>
                                   </div>
+                                  <small class="text-danger ms-2"><%= (locals.errors && errors.description) && errors.description.msg %></small>
                             </div>
                            
                             <div class="col-12 d-flex justify-content-end">
