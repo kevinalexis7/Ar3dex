@@ -115,6 +115,7 @@ $("passwordConfirm").addEventListener("blur", function () {
 
 //botones de ojito (button-eye)
 $("button-eye").addEventListener("click", function () {
+    
     this.firstElementChild.classList.toggle('fa-eye');
     this.firstElementChild.classList.toggle('fa-eye-slash');
     $("password").type = $('password').type ===  "password" ? "text" : "password"
@@ -139,7 +140,7 @@ $("form-register").addEventListener("submit", function (e) {
 
   
 if (!error) {
-    this.onsubmit()
+    this.submit()
 }else{
     $('msg-error').hidden = false
 }

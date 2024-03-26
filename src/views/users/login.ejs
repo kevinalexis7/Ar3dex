@@ -27,7 +27,7 @@
                 <div class="form__box form__box--position">
                         <label class="form__label" for="password">Contraseña</label>
                         <input class="form__input" id="password" type="password" placeholder="tu contraseña" name="password">
-                        <span class="button-eye" id="button-eye"><i class="fa-solid fa-eye"></i></span>
+                        <span class="button-eye" id="button-eye" hidden><i class="fa-solid fa-eye"></i></span>
                         <small class="text-danger" id="error-password" ><%= locals.errors && errors.password ? errors.password.msg : 'sin errores' %></small>
                 </div>
 

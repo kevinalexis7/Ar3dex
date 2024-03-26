@@ -1,4 +1,6 @@
 console.log("login validator success!");
+const exRegEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+
 const $ = (id) => document.getElementById(id);
 
     //añade las clases que marcan los errores
@@ -25,6 +27,10 @@ for (let i = 0; i < $('form-login').elements.length - 2; i++) {
     inputLabel.classList.remove('invalidForm--label')
     $(`error-${this.id}`).innerHTML = "no small"
     $(`error-${this.id}`).style.visibility = "hidden"
+    this.addEventListener("change", () => {
+        this.value.length > 0 ? $('button-eye').hidden = false : $('button-eye').hidden = true
+    })
+    this.value.length > 0 ? $('button-eye').hidden = false : $('button-eye').hidden = true
     });
 }
 
@@ -40,10 +46,6 @@ $("email").addEventListener("blur", function () {
             ClassesInvalid(this);
             $('error-email').innerHTML = "El mail tiene un formato inválido"
             break;
-        case checkEmail(this.value):
-            ClassesInvalid(this);
-            $('error-email').innerHTML = "El mail tiene un formato inválido"
-            break;
     }
 });
 
@@ -53,14 +55,22 @@ $("password").addEventListener("blur", function () {
         case !this.value:
             ClassesInvalid(this, "La contraseña es obligatoria");
             break;
-            case !exRegPassword.test(this.value):
-            ClassesInvalid(this, "La contraseña es vulnerable");
+        case this.value.length > 0:
+            $('button-eye').hidden = true
             break;
     }
 });
 
+//botón de ojito (button-eye)
+$("button-eye").addEventListener("click", function () {
+    this.firstElementChild.classList.toggle('fa-eye');
+    this.firstElementChild.classList.toggle('fa-eye-slash');
+    $("password").type = $('password').type ===  "password" ? "text" : "password"
+});
+
+
 $("form-login").addEventListener("submit", function (e) {
-  e.preventDefault();
+    e.preventDefault();
 
   let error = false;
   
@@ -74,15 +84,11 @@ $("form-login").addEventListener("submit", function (e) {
             $(`error-${this.elements[i].id}`).style.visibility = "visible"
     }
   }
-  
-if (!error) {
-    this.onsubmit()
+
+  if (!error) {
+    this.submit()
 }else{
     $('msg-error').hidden = false
 }
    
 });
-
-
-
-
