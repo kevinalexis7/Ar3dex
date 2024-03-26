@@ -114,11 +114,18 @@ $("passwordConfirm").addEventListener("blur", function () {
 });
 
 //botones de ojito (button-eye)
-$("button-eye").addEventListener("click", function () {
-    
+$("button-eye").addEventListener("click", function () { 
+    $("password").focus()
     this.firstElementChild.classList.toggle('fa-eye');
     this.firstElementChild.classList.toggle('fa-eye-slash');
     $("password").type = $('password').type ===  "password" ? "text" : "password"
+
+});
+//botones de ojito (button-eye-confirm)
+$("button-eye-confirm").addEventListener("click", function () {   
+    $("passwordConfirm").focus()
+    this.firstElementChild.classList.toggle('fa-eye');
+    this.firstElementChild.classList.toggle('fa-eye-slash');
     $("passwordConfirm").type = $('passwordConfirm').type ===  "password" ? "text" : "password"
 });
 
