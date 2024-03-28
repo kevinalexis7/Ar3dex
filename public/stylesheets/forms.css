@@ -90,6 +90,10 @@
     transition: 90ms;
 }
 
+.form-user small.form-user-login{
+    visibility:visible;
+}
+
 .exclamation-popover{
     border-radius: 100%;
     border-collapse: separate;
