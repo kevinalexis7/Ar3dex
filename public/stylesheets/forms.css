@@ -105,3 +105,9 @@
 .invalidForm--label{
     color: #ff3030;
 }
+.info-avise {
+    color: green;
+}
+.info-error{
+    color: #e40000;
+}
