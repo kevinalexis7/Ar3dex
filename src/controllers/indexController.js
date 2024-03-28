@@ -1,5 +1,7 @@
+const {existsSync, readFileSync} = require('fs');
 const { Op } = require("sequelize")
 const db = require('../database/models')
+const path = require('path')
 
 
 
@@ -8,6 +10,9 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 module.exports = {
     index: (req,res) => {
 
+        const bannerJSON = readFileSync('src/data/banner.json')
+        const {file} = JSON.parse(bannerJSON)
+
         db.Product.findAll({
             where: {
                 offer: true
@@ -15,6 +20,7 @@ module.exports = {
         })
         .then(products => {
             return res.render('index', {
+                bannerImage :existsSync('public/images/' + file) ? file : null,
                 products,
                 toThousand
         })
@@ -29,11 +35,15 @@ module.exports = {
     },
     admin : async(req,res) => {
         try {
+            const bannerJSON = readFileSync('src/data/banner.json','utf-8')
+            const {file} = JSON.parse(bannerJSON)
+
             const products = await db.Product.findAll({
                 include: ['category']
             });
             return res.render('dashboard', {
                 products,
+                bannerImage :existsSync('public/images/' + file) ? file : null,
                 
             });
         } catch (error) {
