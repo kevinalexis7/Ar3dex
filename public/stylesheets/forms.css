@@ -109,3 +109,9 @@
     color: #ff3030;
     transition: 90ms;
 }
+.info-avise {
+    color: green;
+}
+.info-error{
+    color: #e40000;
+}
