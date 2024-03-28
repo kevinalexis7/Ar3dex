@@ -21,17 +21,17 @@
             <div class="form__box">
                 <label class="form__label " for="name">Nombre</label>
                 <input class="form__input" id="name" type="text" placeholder="Escribí tu nombre" name="name" value="<%= locals.old && old.name %>">
-                <small class="text-danger" id="error-name"><%= (locals.errors &&  errors.name) ? errors.name.msg : "sin error" %></small>
+                <small class="text-danger" id="error-name"><%= (locals.errors &&  errors.name) ? errors.name.msg : " Campo invalido " %></small>
             </div>
             <div class="form__box">
                 <label class="form__label" for="surname">Apellido</label>
                 <input class="form__input" id="surname" type="text" placeholder="Escribí tu apellido" name="surname" value="<%= locals.old && old.surname %>">
-                <small class="text-danger" id="error-surname"><%= (locals.errors &&  errors.surname) ? errors.surname.msg : "sin error" %></small>
+                <small class="text-danger" id="error-surname"><%= (locals.errors &&  errors.surname) ? errors.surname.msg : " Campo invalido " %></small>
             </div>
             <div class="form__box">
                 <label class="form__label" for="email">Email</label>
                 <input class="form__input" id="email" type="email" placeholder="Correo@correo.com" name="email" value="<%= locals.old && old.email %>">
-                <small class="text-danger" id="error-email"><%= (locals.errors &&  errors.email) ? errors.email.msg : "sin error"%></small>
+                <small class="text-danger" id="error-email"><%= (locals.errors &&  errors.email) ? errors.email.msg : " Campo invalido " %></small>
             </div>
            
             <div class="form__box form__box--position">
@@ -41,16 +41,16 @@
                     data-bs-content="La contraseña debe tener: de 8 a 16 carácteres, al menos una mayúscula, una minúscula y un carácter numérico."><i class="fa-solid fa-circle-info exclamation-popover"></i></span>
                 </label>
                 <input class="form__input" id="password" type="password" placeholder="Tu contraseña" name="password">
-                <span class="button-eye" id="button-eye"><i class="fa-solid fa-eye"></i></span>
+                <span class="button-eye" id="button-eye" hidden><i class="fa-solid fa-eye"></i></span>
                 <small
-                 class="text-danger" id="error-password" ><%= (locals.errors &&  errors.password) ? errors.password.msg : "sin error" %>
+                 class="text-danger" id="error-password" ><%= (locals.errors &&  errors.password) ? errors.password.msg : " Campo invalido " %>
                 </small>
             </div>
             <div class="form__box form__box--position">
                 <label class="form__label" for="passwordConfirm">Confirma tu contraseña</label>
                 <input class="form__input" id="passwordConfirm" type="password" placeholder="Confirma tu contraseña" name="passwordConfirm">
-                <span class="button-eye" id="button-eye-confirm"><i class="fa-solid fa-eye"></i></span>
-                <small class="text-danger" id="error-passwordConfirm"><%= (locals.errors &&  errors.passwordConfirm) ? errors.passwordConfirm.msg : "sin error" %></small>
+                <span class="button-eye" id="button-eye-confirm" hidden><i class="fa-solid fa-eye"></i></span>
+                <small class="text-danger" id="error-passwordConfirm"><%= (locals.errors &&  errors.passwordConfirm) ? errors.passwordConfirm.msg : " Campo invalido " %></small>
             </div>
             <div>
                 <div class="form-check text-center">
@@ -58,7 +58,7 @@
                     <label class="form-check-label ms-0" for="remember">
                     Acepto <a href="" class="link-primary" data-bs-toggle="modal" data-bs-target="#modalRemember">términos y condiciones.</a>
                     </label>
-                    <small class="text-danger" id="error-remember"><%= (locals.errors &&  errors.remember) ? errors.remember.msg : "sin error" %></small>
+                    <small class="text-danger" id="error-remember"><%= (locals.errors &&  errors.remember) ? errors.remember.msg : " Campo invalido " %></small>
                 </div>
             </div>
             

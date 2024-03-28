@@ -25,12 +25,8 @@ for (let i = 0; i < $('form-login').elements.length - 2; i++) {
 
     this.classList.remove('invalidForm')
     inputLabel.classList.remove('invalidForm--label')
-    $(`error-${this.id}`).innerHTML = "no small"
+    $(`error-${this.id}`).innerHTML = "no error"
     $(`error-${this.id}`).style.visibility = "hidden"
-    this.addEventListener("change", () => {
-        this.value.length > 0 ? $('button-eye').hidden = false : $('button-eye').hidden = true
-    })
-    this.value.length > 0 ? $('button-eye').hidden = false : $('button-eye').hidden = true
     });
 }
 
@@ -48,24 +44,28 @@ $("email").addEventListener("blur", function () {
             break;
     }
 });
-
 //password
-$("password").addEventListener("blur", function () {
+$("password").addEventListener("focus",function () {
+    console.log(this.value.length)
+    $("password").addEventListener("keyup", function (e) {
+        e.target.value.length > 0 ? $("button-eye").hidden = false : $("button-eye").hidden = true
+ })
+ })
+$("password").addEventListener("blur", function (e) {
     switch (true) {
         case !this.value:
             ClassesInvalid(this, "La contraseña es obligatoria");
-            break;
-        case this.value.length > 0:
-            $('button-eye').hidden = true
             break;
     }
 });
 
 //botón de ojito (button-eye)
+
 $("button-eye").addEventListener("click", function () {
     this.firstElementChild.classList.toggle('fa-eye');
     this.firstElementChild.classList.toggle('fa-eye-slash');
     $("password").type = $('password').type ===  "password" ? "text" : "password"
+    $("password").focus()
 });
 
 

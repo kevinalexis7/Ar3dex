@@ -87,6 +87,7 @@
 .form-user small{
     visibility: hidden;
     line-height: 1px;
+    transition: 90ms;
 }
 
 .exclamation-popover{
@@ -96,12 +97,15 @@
     box-shadow: 1px 1px 3px #b440ee;
     background-color: rgb(108, 108, 108);
     font-size: 20px;
+    transition: 90ms;
 }
 .invalidForm{
     border: 1px solid #7b7b7b;
     background-color: #ff000006;
     box-shadow: 2px 2px 5px #e40000;
+    transition: 90ms;
 }
 .invalidForm--label{
     color: #ff3030;
+    transition: 90ms;
 }
