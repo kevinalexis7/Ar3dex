@@ -101,8 +101,6 @@
                                     <textarea name="description" data-identificador="Descripción" class="form-control bg-dark-subtle <%= (locals.errors &&  errors.description) && 'is-invalid' %>" id="description" style="height: 200px;"><%= locals.old ? old.description : description %></textarea>
                                     <label for="description">Modifica la descripción</label>
                                   </div>
-                                  <p id="info-description" style="color:green"></p>
-                                  <p id="error-description" style="color:red"></p> 
                                   <small class="text-danger ms-2"><%= (locals.errors && errors.description) && errors.description.msg %></small>
                             </div>
                            
