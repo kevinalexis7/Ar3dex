@@ -82,17 +82,28 @@ let form = document.querySelector('#form-create');
 
             if (!element.value) {
                 error = true;
-                camposVacios += identificador + '<br>'; 
+                camposVacios += `El campo ${identificador} es obligatorio.<br>`;
             } 
         }
-    
+        const name=document.querySelector('#name');
         if (!error) {
-            form.submit();
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "El producro " + name.value + "se creo con exito",
+                footer : " ",
+                showConfirmButton: false,
+                
+              });
+              setTimeout(() => {
+                form.submit();
+            }, 2000);
+           
         } else {
             Swal.fire({
                 icon: "error",
                 title: "Ups, hay campos vacíos",
-                html: camposVacios.slice(0, -4),
+                html: camposVacios,
               });
         }
     });

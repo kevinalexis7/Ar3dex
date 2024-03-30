@@ -72,6 +72,7 @@ let form = document.querySelector('#form-edit');
         e.preventDefault();
         let error = false;
         let camposVacios = '';
+        
     
         for(let i = 0; i < form.elements.length -1; i++){
             if(!form.elements[i].value){
@@ -86,17 +87,28 @@ let form = document.querySelector('#form-edit');
                 
                 if (!element.value) {
                     error = true;
-                    camposVacios += identificador + '<br>'; 
+                    camposVacios += `El campo ${identificador} es obligatorio.<br>`;
                 } 
             }
         }
         if (!error) {
-            form.submit();
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "El producro se actualizo ",
+                footer : " ",
+                showConfirmButton: false,
+                
+              });
+              setTimeout(() => {
+                form.submit();
+            }, 2000);
+           
         } else {
             Swal.fire({
                 icon: "error",
                 title: "Ups, hay campos vacíos",
-                html: camposVacios.slice(0, -4),
+                html: camposVacios,
               });
         }
     })
