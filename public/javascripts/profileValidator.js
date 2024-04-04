@@ -20,8 +20,10 @@ for (let i = 0; i < $("form-edit-user").elements.length - 3; i++) {
 
     $(inputName).addEventListener("focus", function () {
         const inputLabel = document.querySelector(`label[for=${this.id}]`);
+        
         this.classList.remove("invalidForm");
         inputLabel.classList.remove("invalidForm--label");
+        $(`error-${this.id}`).style.visibility = "hidden";
     });
 }
 
