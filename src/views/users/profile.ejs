@@ -84,7 +84,7 @@
                     <label for="phone" class="form__label">Telefono</label>
                     <input type="text" name="phone" class="form-control <%= locals.errors && errors.phone ? 'is-invalid' : null %>" id="phone" 
                     value="<%= user.phone || null %>" />
-                    <small class="text-danger ms-2">
+                    <small class="text-danger ms-2" id="error-phone">
                       <%= locals.errors && errors.phone ? errors.phone.msg : null %>
                     </small>
                   </div>

@@ -54,6 +54,23 @@ $("email").addEventListener("blur", function () {
     }
 });
 
+// Teléfono validation
+$("phone").addEventListener("blur", function () {
+    if (!this.value) {
+        ClassesInvalid(this, "El teléfono es obligatorio :/");
+    } else if (!/^\d+$/.test(this.value)) {
+        ClassesInvalid(this, "El teléfono solo debe contener números");
+    }
+});
+
+// Nuevo controlador de eventos para eliminar clases de estilo de error cuando el campo de teléfono obtiene el enfoque
+$("phone").addEventListener("focus", function () {
+    const inputLabel = document.querySelector(`label[for=${this.id}]`);
+    this.classList.remove("invalidForm");
+    inputLabel.classList.remove("invalidForm--label");
+    $(`error-${this.id}`).style.visibility = "hidden";
+});
+
 
 const validateEditUserForm = () => {
     let isValid = true;
@@ -75,7 +92,16 @@ const validateEditUserForm = () => {
             ClassesInvalid($("email"), "El email es obligatorio y debe tener un formato válido");
             isValid = false;
         }
-        return isValid;
+
+    const phone = $("phone").value;
+        if (!phone) {
+            ClassesInvalid($("phone"), "El teléfono es obligatorio");
+            isValid = false;
+        } else if (!/^\d+$/.test(phone)) {
+            ClassesInvalid($("phone"), "El teléfono solo debe contener números");
+            isValid = false;
+        }
+    return isValid;
 };
 
 
