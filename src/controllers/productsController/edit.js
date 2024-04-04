@@ -1,7 +1,11 @@
+const {existsSync, readFileSync} = require('fs');
 const db = require('../../database/models');
+const path = require('path')
+
 
 module.exports = (req, res) => {
-
+    const bannerJSON = readFileSync('src/data/banner.json')
+    const {file} = JSON.parse(bannerJSON)
     Promise.all([
         db.Category.findAll({ order: ['name'] }),
         db.Product.findByPk(req.params.id)
@@ -13,6 +17,7 @@ module.exports = (req, res) => {
 
 
         return res.render('products/product-edit', {
+            bannerImage :existsSync('public/images/' + file) ? file : null,
             product, 
             categories,
             name: product.name,
