@@ -78,9 +78,9 @@
       "id": 6,
       "name": "Zoro",
       "price": "80",
-      "mainImage": "1704222958518_descarga.jpeg",
+      "mainImage": "1712222588634_zoro-removebg-preview.png",
       "images": [
-         "1704222958518_descarga.jpeg"
+         "1712222588634_zoro-removebg-preview.png"
       ],
       "category": "figura",
       "description": "Las figuras pintadas las realizamos bajo Pedido. Las fechas de entrega suelen variar según la cola de trabajo. El kit de montaje se suministra sin montar y requiere preparación del modelo (lijado, montaje...) Contacte para un tamaño distinto o si tiene alguna duda. Luffy es el protagonista de la serie de anime y manga One Piece. Es un pirata valiente y decidido que sueña con convertirse en el Rey de los Piratas y encontrar el tesoro más grande del mundo, el One Piece. 18cm Alto x 19,5cm Ancho PLA",
@@ -117,7 +117,7 @@
       "id": 9,
       "name": "Sasuke",
       "price": "70",
-      "mainImage": "1704224155713_sasuke.jpg",
+      "mainImage": "1712222384987_1704224155713_sasuke-removebg-preview.png",
       "images": [
          "1704224155713_sasuke.jpg"
       ],
@@ -130,7 +130,7 @@
       "id": 10,
       "name": "NIKE",
       "price": "2",
-      "mainImage": "1704224101754_jordan.jpeg",
+      "mainImage": "1704224101754_jordan.png",
       "images": [
          "1704224101754_jordan.jpeg"
       ],
@@ -143,7 +143,7 @@
       "id": 11,
       "name": "Power ranger",
       "price": "5",
-      "mainImage": "1704224049775_power mate.PNG",
+      "mainImage": "1704224049776_power mate.PNG",
       "images": [
          "1704224049775_power mate.PNG"
       ],
@@ -156,7 +156,7 @@
       "id": 12,
       "name": "Perro salchicha",
       "price": "6",
-      "mainImage": "1704223918976_perro salchicha.jpg",
+      "mainImage": "1704223918976_perro salchicha.png",
       "images": [
          "1704223918976_perro salchicha.jpg"
       ],
@@ -169,7 +169,7 @@
       "id": 13,
       "name": "Rambo",
       "price": "15",
-      "mainImage": "1704223639177_rambo.jpeg",
+      "mainImage": "rambo-removebg-preview.png",
       "images": [
          "1704223639177_rambo.jpeg"
       ],
@@ -182,12 +182,65 @@
       "id": 14,
       "name": "Yuyu Hakusho",
       "price": "10",
-      "mainImage": "1704223540598_yuyu.jpg",
+      "mainImage": "1712222359279_1709563933355_yuyu2-removebg-preview.png",
       "images": [
-         "1704223540598_yuyu.jpg"
+         "1712222359279_1709563933355_yuyu2-removebg-preview.png"
       ],
       "category": "figura",
       "description": "Estatuilla",
+      "offer": 0,
+      "discount": 0
+   },
+   {
+      "id": 15,
+      "name": "Demonio",
+      "price": 80,
+      "mainImage": "1712224692240_mascara_demonio-removebg-preview.png",
+      "images": [
+         "1712224959154_mascaraPerfil.png"
+      ],
+      "category": "mascara",
+      "description": "Las fechas de entrega suelen variar según la cola de trabajo. El kit de montaje se suministra sin montar y requiere preparación del modelo (lijado, montaje...) Contacte para un tamaño distinto o si tiene alguna duda.",
+      "offer": 1,
+      "discount": 10
+   },
+   {
+      "id": 16,
+      "name": "Picador galletita 'Sonrisas'",
+      "price": "15",
+      "mainImage": "1712224303441_1709570877902_sonrisas-removebg-preview.png",
+      "images": [
+         "1712224303441_galle.jpg"
+      ],
+      "category": "picador",
+      "description": "Picador similar a galletitas Sonrisas",
+      "offer": 1,
+      "discount": 10
+   },
+   {
+      "id": 17,
+      "name": "Picador Gatito",
+      "price": "20",
+      "mainImage": "1712223800699_1709570627826_picagatito3-removebg-preview.png",
+      "images": [
+         "1712223800702_1709570627826_picagatito3.png"
+      ],
+      "category": "picador",
+      "description": "Picador de gatito tipo Cogonauts",
+      "offer": 1,
+      "discount": 10
+   },
+   {
+      "id": 18,
+      "name": "Casco Storm Trooper",
+      "price": "220",
+      "mainImage": "1712226493628_cascoStormTrooper-removebg-preview.png",
+      "images": [
+         "1712226493634_stormTrooperPerfil.png",
+         "1712226493642_cascoStormTrooper.png"
+      ],
+      "category": "mascara",
+      "description": "Casco de Storm Trooper muerto, en tamaño real y pintado a mano ",
       "offer": 0,
       "discount": 0
    }
