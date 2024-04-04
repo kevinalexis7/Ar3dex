@@ -52,7 +52,7 @@ let form = document.querySelector('#form-create');
     });
 
     $("description").addEventListener("focus",()=>{
-        $('info-description').innerHTML = "Ingresa la descripcion del producto";
+        $('info-description').innerHTML = "Ingresa la descripción del producto";
             setTimeout(()=>{
             $('info-description').innerHTML = "";
         }, 2000);
@@ -63,7 +63,7 @@ let form = document.querySelector('#form-create');
         $('info-description').innerHTML = "";
     
         if(e.target.value.length < 20) $('error-description').innerHTML = "Debe tener más de 20 caracteres";
-        if(!e.target.value) $('error-description').innerHTML = "Debes ingresar la descripcion del producto"
+        if(!e.target.value) $('error-description').innerHTML = "Debes ingresar la descripción del producto"
         
     });
 
@@ -90,7 +90,7 @@ let form = document.querySelector('#form-create');
             Swal.fire({
                 position: "center",
                 icon: "success",
-                title: "El producro " + name.value + "se creo con exito",
+                title: "El producto " + name.value + " se creó con éxito",
                 footer : " ",
                 showConfirmButton: false,
                 

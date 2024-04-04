@@ -95,7 +95,7 @@ let form = document.querySelector('#form-edit');
             Swal.fire({
                 position: "center",
                 icon: "success",
-                title: "El producro se actualizo ",
+                title: "El producto se actualizó exitosamente ",
                 footer : " ",
                 showConfirmButton: false,
                 
