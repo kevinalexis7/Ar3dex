@@ -7,7 +7,8 @@ module.exports = (req, res) => {
         include : ["address"],
     }).then(user => {
         // return res.send(user)
-        return res.render('users/profile', { user });
+        const image = user.image ? `/images/users/${user.image}` : `/images/users/default-user-image.jpg`;
+        return res.render('users/profile', { user, image });
     })
     .catch(error => console.log(error));
 };
