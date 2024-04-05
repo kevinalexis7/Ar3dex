@@ -32,14 +32,14 @@ module.exports = [
         // }).withMessage('El email ya se encutra registrado'),
     check('address')
         .isLength({
-        max : 25
-        }).withMessage('Máximo 25 caracteres'),
+        max : 65
+        }).withMessage('Máximo 65 caracteres'),
     check('city')
         .isLength({
-        max : 20
-        }).withMessage('Máximo 20 caracteres'),
+        max : 70
+        }).withMessage('Máximo 70 caracteres'),
     check('province')
         .isLength({
-        max : 20
-        }).withMessage('Máximo 20 caracteres'),
+        max : 70
+        }).withMessage('Máximo 70 caracteres'),
 ]

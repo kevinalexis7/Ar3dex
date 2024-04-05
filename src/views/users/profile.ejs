@@ -45,19 +45,21 @@
                       </small>
                   </div>
 
-                  <div class="col-12 col-md-6 mb-3">
+                  <div class="col-12 col-md-6 mb-3" id="selectedProvince">
                     <label for="province" class="form__label">Provincia</label>
-                    <input type="text" name="province" class="form-control <%= locals.errors && errors.province ? 'is-invalid' : null %>" id="province"
-                      value="<%= user.address && user.address.province ? user.address.province : null %>" />
+                      <select class="form-select form-control  <%= locals.errors && errors.province ? 'is-invalid' : null %>" name="province" id="province">
+                        <option value="" selected hidden>Seleccione... </option>
+                      </select>
                       <small class="text-danger ms-2">
                         <%= locals.errors && errors.province ? errors.province.msg : null %>
                       </small>
                   </div>
 
-                  <div class="col-12 col-md-6 mb-3">
+                  <div class="col-12 col-md-6 mb-3" id="selectedCity">
                     <label for="city" class="form__label">Ciudad</label>
-                    <input type="text" name="city" class="form-control <%= locals.errors && errors.city ? 'is-invalid' : null %>" id="city" 
-                    value="<%= user.address && user.address.city ? user.address.city : null %>" />
+                    <select class="form-select form-control  <%= locals.errors && errors.city ? 'is-invalid' : null %>" name="city" id="city">
+                      <option value="" selected hidden>Seleccione primero la provincia... </option>
+                    </select>
                     <small class="text-danger ms-2">
                       <%= locals.errors && errors.city ? errors.city.msg : null %>
                     </small>
