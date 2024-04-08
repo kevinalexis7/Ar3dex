@@ -14,9 +14,6 @@
               </div>
               <div class="card-body">
 
-
-
-
                 <form action="/usuarios/actualizarPerfil/<%= user.id %>?_method=PUT" class="row" method="POST" enctype="multipart/form-data" id="form-edit-user">
                   
                   <div class="text-center mb-4">
@@ -99,9 +96,12 @@
                     </small>
                   </div>
 
-                  <!-- <figure class="product-box_image">
-                    <img src="/images/users/<%=  user.image %>" alt="imagen del usuario">
-                  </figure> -->
+                  <% if (user && user.image) { %>
+                    <figure class="product-box_image">
+                        <img src="/images/users/<%= user.image %>" alt="imagen del usuario">
+                    </figure>
+                <% } %>
+                
 
                   <div class="mt-3 text-center">
                     <label class="boton-guardarCambios" for="userImage">Cambiar imagen</label>

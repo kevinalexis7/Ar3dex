@@ -25,6 +25,9 @@
     "sequelize": "^6.36.0"
   },
   "nodemonConfig": {
-    "ignore": ["public/javascripts/*.js", "src/data/*json"]
+    "ignore": [
+      "public/javascripts/*.js",
+      "src/data/*json"
+    ]
   }
 }

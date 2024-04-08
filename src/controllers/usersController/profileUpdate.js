@@ -1,6 +1,6 @@
 const db = require('../../database/models');
 const { validationResult } = require("express-validator");
-const { existsSync, unlinkSync } = require('fs');
+
 
 module.exports = (req, res) => {
     const userImage = req.files.image;
@@ -38,7 +38,7 @@ module.exports = (req, res) => {
                         surname,
                         email,
                         phone,
-                        image: userImage ? userImage.filename : null
+                        image: userImage 
                     },
                     {
                         where: {
