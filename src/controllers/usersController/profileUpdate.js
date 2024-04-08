@@ -3,8 +3,7 @@ const { existsSync, unlinkSync } = require("fs");
 const db = require('../../database/models');
 
 module.exports = async (req, res) => {
-    const userImage = req.files.image;
-
+    const userImage = req.files.userImage;
     const {
         name,
         surname,
@@ -44,6 +43,7 @@ module.exports = async (req, res) => {
                     }
                 }
             );
+
 
                 await user.address.update({
                     street,

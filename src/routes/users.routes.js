@@ -13,7 +13,7 @@ const checkAuthUser = require('../middlewares/checkAuthUser')
 /* Usuarios */
 router
     .get('/ingreso',checkAuthUser, login )
-    .post('/crearUsuario', userUpload.fields([{name : 'userImage'}]), userRegisterValidator, processRegister)
+    .post('/crearUsuario', userRegisterValidator, processRegister)
     .get('/registro', checkAuthUser,register)
     .post('/ingreso',userLoginValidator,processLogin)
     .get('/salir',logout)
