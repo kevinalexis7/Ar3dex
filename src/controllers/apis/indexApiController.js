@@ -1,4 +1,5 @@
-const {writeFileSync} = require('fs');
+const {existsSync, unlinkSync} = require('fs');
+const { leerJSON, escribirJSON } = require("../../data");
 
 
 const changeBanner = async(req,res) => {
@@ -7,13 +8,20 @@ const changeBanner = async(req,res) => {
         if(!req.files.length){
             throw new Error('No hay imagen')
         }
-
+        const lastBanner = leerJSON("banner") 
         const objetBanner = {
             file : req.files[0].filename
         }
+        
+        //(req.files && existsSync('public/images/banners/' + lastBanner.file)) && unlinkSync('public/images/banners/' + lastBanner.file)
+        if(req.files){
+            existsSync('public/images/banners/' + lastBanner.file) && unlinkSync('public/images/banners/' + lastBanner.file)
+        } 
+        
+        
+        
 
-
-        writeFileSync('src/data/banner.json', JSON.stringify(objetBanner),'utf-8')
+        escribirJSON(objetBanner,"banner")
         
 
         return res.status(200).json({
