@@ -75,11 +75,11 @@ body {
     height: 316px;
 }
 
-.product-box_data{
-    
+.product-box_data {
     color: white;
     background-color: var(--colorVioleta);
     height: 100%;
+    background-image: linear-gradient(to bottom, var(--colorVioleta), black);
 }
 
 .priceanddiscount{
