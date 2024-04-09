@@ -1,8 +1,21 @@
 const {existsSync, unlinkSync} = require('fs');
 const { leerJSON, escribirJSON } = require("../../data");
+const { Op } = require("sequelize")
+const db = require('../../database/models')
+
+const listBanner = async (req,res) => {
+
+    db.Banner.findAll()
+    .then(banner => {
+        return res.json(banner)
+    })
+
+}
 
 
-const changeBanner = async(req,res) => {
+
+
+const addBanner = async(req,res) => {
     try {
        
         if(!req.files.length){
@@ -13,14 +26,6 @@ const changeBanner = async(req,res) => {
             file : req.files[0].filename
         }
         
-        //(req.files && existsSync('public/images/banners/' + lastBanner.file)) && unlinkSync('public/images/banners/' + lastBanner.file)
-        if(req.files){
-            existsSync('public/images/banners/' + lastBanner.file) && unlinkSync('public/images/banners/' + lastBanner.file)
-        } 
-        
-        
-        
-
         escribirJSON(objetBanner,"banner")
         
 
@@ -38,5 +43,12 @@ const changeBanner = async(req,res) => {
 }
 
 module.exports = {
-    changeBanner
+    listBanner,
+    addBanner
 }
+
+        
+/* if(req.files){
+    existsSync('public/images/banners/' + lastBanner.file) && unlinkSync('public/images/banners/' + lastBanner.file)
+} 
+ */
