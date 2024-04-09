@@ -130,11 +130,12 @@ flex-direction: row-reverse;
     background: linear-gradient(to top left, rgb(171, 84, 171), transparent);
 }
 
+
 .detalleProducto__main__articule__caracteristicas__div__detalles img {
     display: none;
 }
 
-.detalleProducto__main__articule__caracteristicas__div__detalles__material--mobile {
+.detalleProducto__main__articule__caracteristicas__div__detalles__material-description {
     margin-right: 10px;
 }
 
@@ -159,6 +160,7 @@ flex-direction: row-reverse;
         justify-content: space-between;
         margin-bottom: 30px;
         align-items: center;
+        align-items: center;
     }
 
     .detalleProducto__main__articule__variaciones {
@@ -175,6 +177,7 @@ flex-direction: row-reverse;
     }
 
     .detalleProducto__main__articule__div__nombre-y-imagen {
+        width: 75%;
         width: 75%;
         margin-right: 20px;
     }
@@ -198,9 +201,17 @@ flex-direction: row-reverse;
 
     .detalleProducto__main__articule__caracteristicas__div__detalles {
         background: linear-gradient(to top left, rgb(171, 84, 171), transparent);
+        background: linear-gradient(to top left, rgb(171, 84, 171), transparent);
         justify-content: space-between;
     }
 
+    .detalleProducto__main__articule__caracteristicas__div__detalles img {
+        width: 100%;
+        display: flex;
+        max-width: 400px;
+        background: radial-gradient(circle, #00000048 48%, #00000000 70%);
+        mask-image: linear-gradient(0deg, #ffffff00 0%, #000000 10%,#000000 90%, #ffffff00 100%);
+        display: block;
     .detalleProducto__main__articule__caracteristicas__div__detalles img {
         width: 100%;
         display: flex;
@@ -250,4 +261,5 @@ flex-direction: row-reverse;
         font-size: 40px;
     } 
 
+} 
 }
