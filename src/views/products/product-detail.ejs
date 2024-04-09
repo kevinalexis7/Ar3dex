@@ -11,7 +11,7 @@
             <div class="detalleProducto__main__articule__div__nombre-y-imagen position-relative">
                 <h2><%= name %></h2>
                 <div>
-                    <img src="/images/products/<%= mainImage || 'default-image.png' %>" alt="..." >
+                    <img id="imagenMain" src="/images/products/<%= mainImage || 'default-image.png' %>" alt="..." >
                 </div>
             </div>
             <div class="detalleProducto__main__articule__div__pago">
@@ -35,7 +35,7 @@
                 <div class="detalleProducto__main__articule__div__nombre-y-imagen__div__carrusel">
                     <% if (images && images.length > 0) { %>
                         <% images.forEach(image => { %>
-                            <img src="/images/products/<%= image.name || mainImage %>" alt="...">
+                            <img src="/images/products/<%= image.name || mainImage %>" alt="..." onclick="document.getElementById('imagenMain').src=this.src">
                         <% }) %>
                     <% } else { %>
                         <img src="/images/products/default-image.png" alt="...">
