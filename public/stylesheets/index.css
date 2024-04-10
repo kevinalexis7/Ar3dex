@@ -75,6 +75,10 @@ body {
     height: 316px;
 }
 
+.Product-grid{
+    height: 100%;
+}
+
 .product-box_data {
     color: white;
     background-color: var(--colorVioleta);
@@ -96,7 +100,7 @@ body {
 
 .index__main__section--categories img {
     width: 90%;
-    height: 75%;
+
 }
 .index__main__section__article--category--name {
     text-align: center;

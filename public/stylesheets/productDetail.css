@@ -15,33 +15,30 @@
     text-align: center;
     width: 100%;
     margin: 0 auto;
-
-    
 }
 
 .detalleProducto__main__articule {
-    width: 100%;
+    width: 90%;
 }
 
 .detalleProducto__main__articule__div__nombre-y-imagen{
     background: linear-gradient(to top, rgba(122, 122, 122, 0.4), white);
     border: 5px solid var(--colorVioleta);
+    margin: 10px;
 }
 
 .detalleProducto__main__articule__div__nombre-y-imagen h2 {
-  color: white;
-  font-size: 18px; 
-  margin-bottom: 10px;
-  border-bottom: 3px solid var(--colorVioleta);
-  background-color: rgb(50, 50, 50, 0.8);
-  text-shadow: 2px 2px 2px black;
-  padding: 5px
+    color: white;
+    font-size: 18px; 
+    margin-bottom: 10px;
+    border-bottom: 3px solid var(--colorVioleta);
+    background: linear-gradient(to bottom, var(--colorVioleta), black);
+    text-shadow: 2px 2px 2px black;
+    padding: 5px
 }
 
 .detalleProducto__main__articule__variaciones {
     display: none;
-    text-align: left;
-    margin-bottom: 10px;
 }
 
 .detalleProducto__main__articule__div__nombre-y-imagen__div__carrusel {
@@ -52,7 +49,6 @@
 display: flex;
 flex-direction: column;
 color: white;
-
 }
 
 .detalleProducto__main__articule__div__pago__precio {
@@ -65,8 +61,8 @@ flex-direction: row-reverse;
 }
 
 .detalleProducto__main__articule__div__pago__precio__precioNormal {
-    font-size: 22px;
-    margin-left: 30px;
+    font-size: 16px;
+    
     text-shadow: 2px 2px 2px black;
     text-decoration: line-through black;
 }
@@ -74,15 +70,13 @@ flex-direction: row-reverse;
 .detalleProducto__main__articule__div__pago__precio__precioOferta {
     font-size: 30px;
     margin-left: 5px;
-    margin-right: 35px;
+    
     text-shadow: 3px 3px 3px black;
 }
 
 .detalleProducto__main__articule__div__precios__lineaSeparadora {
     border-top: 5px solid white; 
     margin-bottom: 10px; 
-    
-    
 }
 
 .detalleProducto__main__articule__div__precios__cuotas {
@@ -94,7 +88,9 @@ flex-direction: row-reverse;
 }
 
 .detalleProducto__main__articule__div__precios__cuotas p {
-   font-size: 14px;
+    font-size: 12px;
+    margin-right: 5px;
+    margin-top: 10px;
 }
 
 .detalleProducto__main__articule__div__precios__btnAgregarCarrito {
@@ -126,22 +122,21 @@ flex-direction: row-reverse;
     background-color: var(--colorGris);
     color: white;
     text-shadow: 3px 3px 3px black;
-
 }
 
 .detalleProducto__main__articule__caracteristicas__div__detalles {
     display: flex;
     width: 100%;
     background: linear-gradient(to top left, rgb(171, 84, 171), transparent);
-   
 }
 
+
 .detalleProducto__main__articule__caracteristicas__div__detalles img {
-    width: 100%;
-    display: flex;
-    max-width: 400px;
-    background: radial-gradient(circle, #000000 0%, #000000a1 78%, #00000000 100%);
-    mask-image: linear-gradient(0deg, #ffffff00 0%, #000000 10%,#000000 90%, #ffffff00 100%);
+    display: none;
+}
+
+.detalleProducto__main__articule__caracteristicas__div__detalles__material-description {
+    margin-right: 10px;
 }
 
 .detalleProducto__main__articule__caracteristicas__div__detalles__material{
@@ -154,64 +149,7 @@ flex-direction: row-reverse;
 .detalleProducto__main__articule__caracteristicas__div__detalles__material h3 {
     margin-top: 10px;
     margin-bottom: 10px;
-
 }
-
-.detalleProducto__main__articule__caracteristicas__div__detalles__material--tablet {
-    display: none;
-}
-
-.detalleProducto__main__articule__caracteristicas__div__detalles--2 {
-    display: none;
-}
-
-.detalleProducto__main__articule__caracteristicas--3 {
-    display: none;
-}
-
-.detalleProducto__main__articule__puedeInteresar {
-    display: none;
-}
-
-.detalleProducto__main__articule__puedeInteresar__div__titulo {
-    width: 100%;
-    font-size: 14px;
-    margin-top: 40px;
-    background: linear-gradient(to bottom right, rgb(131, 128, 128), transparent);
-    color: white;
-    text-shadow: 3px 3px 3px black;
-    border: 3px solid black;
-}
-
-.detalleProducto__main__articule__puedeInteresar__div__producto {
-    background: linear-gradient(to top, var(--colorVioleta), black);
-    text-align: center;
-    display: block;
-
-}
-
-.detalleProducto__main__articule__puedeInteresar__div__producto img {
-    /* width: 50%;
-    margin-top: 50px;
-    background: linear-gradient(to bottom right, rgb(131, 128, 128), transparent); */
-    border: 5px solid black;
-    width: 100%;
-}
-
-.detalleProducto__main__articule__puedeInteresar__div__producto h4 {
-    color: white;
-    text-shadow: 3px 3px 3px black;
-    font-size: 20px;
-    /* margin-bottom: 20px; */
-}
-/* .detalleProducto__main__articule__puedeInteresar__div__producto--2 {
-    display: none;
-}
-
-.detalleProducto__main__articule__puedeInteresar__div__producto--3 {
-    display: none;
-}
- */
 
 /* Tablet */
 
@@ -221,11 +159,12 @@ flex-direction: row-reverse;
         display: flex;
         justify-content: space-between;
         margin-bottom: 30px;
+        align-items: center;
+        align-items: center;
     }
 
     .detalleProducto__main__articule__variaciones {
         display: inline;
-        
     }
 
     .detalleProducto__main__articule__div__nombre-y-imagen__div__carrusel {
@@ -235,59 +174,57 @@ flex-direction: row-reverse;
         flex-direction: row;
         justify-content: space-between;
         margin-bottom: 20px;
-
     }
 
     .detalleProducto__main__articule__div__nombre-y-imagen {
-        width: 100%;
+        width: 75%;
+        width: 75%;
         margin-right: 20px;
     }
 
-
     .detalleProducto__main__articule__div__nombre-y-imagen__div__carrusel img {
-       width: 30%;
-       background: linear-gradient(to top, rgba(122, 122, 122, 0.4), white);
-       border: 5px solid var(--colorVioleta);
-       aspect-ratio: 3/3;
+        width: 30%;
+        background: linear-gradient(to top, rgba(122, 122, 122, 0.4), white);
+        border: 5px solid var(--colorVioleta);
+        aspect-ratio: 3/3;
     }
 
     .detalleProducto__main__articule__div__pago {
-    width: 80%;
-    
+        width: 80%;
     }
 
-   
+    
+    .detalleProducto__main__articule__div__precios__cuotas p {
+        font-size: 20px;
+        margin-left: 10px;
+    }
+
     .detalleProducto__main__articule__caracteristicas__div__detalles {
-        background: transparent;
+        background: linear-gradient(to top left, rgb(171, 84, 171), transparent);
+        background: linear-gradient(to top left, rgb(171, 84, 171), transparent);
         justify-content: space-between;
     }
 
-    .detalleProducto__main__articule__caracteristicas__div__detalles__material {
-        background: linear-gradient(to top left, rgb(171, 84, 171), transparent);
+    .detalleProducto__main__articule__caracteristicas__div__detalles img {
+        width: 100%;
+        display: flex;
+        max-width: 400px;
+        background: radial-gradient(circle, #00000048 48%, #00000000 70%);
+        mask-image: linear-gradient(0deg, #ffffff00 0%, #000000 10%,#000000 90%, #ffffff00 100%);
+        display: block;
+    .detalleProducto__main__articule__caracteristicas__div__detalles img {
+        width: 100%;
+        display: flex;
+        max-width: 400px;
+        background: radial-gradient(circle, #00000048 48%, #00000000 70%);
+        mask-image: linear-gradient(0deg, #ffffff00 0%, #000000 10%,#000000 90%, #ffffff00 100%);
+        display: block;
     }
 
     .detalleProducto__main__articule__caracteristicas__div__detalles__material h3 {
         text-align: center;
     }
 
-    
-    .detalleProducto__main__articule__caracteristicas__div__detalles__material--mobile {
-        display: none;
-    }
-
-    .detalleProducto__main__articule__caracteristicas__div__detalles__material--tablet {
-        display: inline;
-
-    }
-  
-    .detalleProducto__main__articule__puedeInteresar__div__producto {
-    display: flex;
-    justify-content: space-around;
-    }
-    
-    .detalleProducto__main__articule__puedeInteresar {
-        display: block;
-    }
 }
 
 /* desktop */
@@ -301,15 +238,10 @@ flex-direction: row-reverse;
     .detalleProducto__main__articule__div__pago__precio__precioNormal {
         font-size: 40px;
         margin-left: 70px;
-     }
+    }
     
     .detalleProducto__main__articule__div__pago__precio__precioOferta {
         font-size: 50px;
-    }
-
-    .detalleProducto__main__articule__div__precios__cuotas p {
-        font-size: 20px;
-        margin-left: 10px;
     }
 
     .detalleProducto__main__articule__div__precios__cuotas h2 {
@@ -319,36 +251,15 @@ flex-direction: row-reverse;
 
     .detalleProducto__main__articule__variaciones {
         font-size: 20px;
-
     }
 
     .detalleProducto__main__articule__caracteristicas__div__caracteristicas {
         font-size: 40px;
-
     }
 
     .detalleProducto__main__articule__caracteristicas__div__detalles__material h3 {
         font-size: 40px;
     } 
 
-    .detalleProducto__main__articule__caracteristicas__div__detalles__material--tablet {
-        font-size: 25px;
-
-    }
-
-    .detalleProducto__main__articule__caracteristicas__div__detalles__material--2 h3 {
-        font-size: 40px;
-
-    }
-
-    .detalleProducto__main__articule__caracteristicas__div__detalles__material--tablet--2 {
-        font-size: 30px;
-
-    }
-
-    .detalleProducto__main__articule__puedeInteresar__div__titulo{
-        font-size: 20px;
-
-    }
-
+} 
 }
