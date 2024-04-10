@@ -6,7 +6,7 @@ inputChangeBanner.addEventListener("change", async (e) => {
   const data = new FormData();
   data.append("file", inputChangeBanner.files[0]);
 
-  const response = await fetch("/apis/add-banner", {
+  const response = await fetch("/apis/banners", {
 
     method: "POST",
     body: data,

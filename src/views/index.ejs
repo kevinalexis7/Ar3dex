@@ -9,11 +9,30 @@
     <main class="index__main">
         <!-- Sección oferta -->
         <section class="index__main__section--banner">
-            <a href="#Oferta_pokemon"><img src="/images/banners/<%= bannerImage || 'default-banner.svg' %>" alt="Oferta_pokémon"></a>
+            <div class="swiper bannerSwiper">
+                <div class="swiper-wrapper">
+                  
+                  <% bannerImages.forEach(image => { %>
+                    <div class="swiper-slide">
+                      <a href="#Oferta_pokemon"><img src="/images/banners/<%= image.file || 'default-banner.svg' %>" alt="Oferta_pokémon"></a>
+                    </div>
+                  <% }) %>
+                  
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+                <div class="autoplay-progress">
+                <svg viewBox="0 0 48 48">
+                <circle cx="24" cy="24" r="20"></circle>
+                </svg>
+                <span></span>
+              </div>
+              </div>
         </section>
         <!-- Carrusel - Productos destacados -->
         <section class="index__main__section--products">
-            <div class="swiper mySwiper">
+            <div class="swiper productsSwiper">
                 <div class="swiper-wrapper">
                   
                   <% products.forEach(product => { %>
@@ -90,27 +109,7 @@
     <%- include('./partials/footer') %>
 
     <%- include('./partials/scripts') %>
-    <script>
-      var swiper = new Swiper(".mySwiper",{
-        effect: "coverflow",
-        grabCursor: true,
-        centeredSlides: true,
-        slidesPerView: "auto",
-        coverflowEffect: {
-          rotate: -6,
-          stretch: -30,
-          depth: 80,
-          modifier: 2,
-          slideShadows: false,
-        },
-        pagination: {
-          el: ".swiper-pagination",
-        },
-        loop:true,
-        navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },});
-    </script>
+    <script src="/javascripts/swiperProducts.js"></script>
+    <script src="/javascripts/swiperBanner.js"></script>
 </body>
 </html>

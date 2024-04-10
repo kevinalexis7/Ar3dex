@@ -11,21 +11,19 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 module.exports = {
     index: (req,res) => {
 
-        const bannerJSON = readFileSync('src/data/banner.json')
-        const {file} = JSON.parse(bannerJSON)
-
-        db.Product.findAll({
+        const banners = db.Banner.findAll()
+        const products = db.Product.findAll({
             where: {
                 offer: true
             }
         })
-        .then(products => {
+        Promise.all([banners, products])
+        .then(([banners,products]) => {
             return res.render('index', {
-                bannerImage :existsSync('public/images/banners/' + file) ? file : null,
+                bannerImages : banners.length ? banners : null,
                 products,
                 toThousand
         })
-        
 
         })
         .catch(error => console.log(error))

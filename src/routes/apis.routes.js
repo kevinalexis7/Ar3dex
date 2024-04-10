@@ -10,8 +10,8 @@ router
   .get('/products', getAllProducts)
   .get('/products/:id', getOneProduct)
   .get('/users/check-email', checkEmail)
-  .get('/banner-list', listBanner)
-  .post('/add-banner', bannerUpload.any(), addBanner)
+  .get('/banners', listBanner)
+  .post('/banners', bannerUpload.any(), addBanner)
 
 
 module.exports = router;
