@@ -9,9 +9,17 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      name: {
+        type: Sequelize.STRING,
+        allowNull: true
+      },
       file: {
         type: Sequelize.STRING,
         allowNull: false
+      },
+      URL: {
+        type: Sequelize.STRING(500),
+        allowNull: true
       },
       createdAt: {
         allowNull: false,

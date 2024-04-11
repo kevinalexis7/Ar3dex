@@ -2,7 +2,7 @@ const {existsSync, readFileSync} = require('fs');
 const { Op } = require("sequelize")
 const db = require('../database/models')
 const path = require('path');
-const { leerJSON } = require('../data');
+const { listBanner } = require('../controllers/apis/indexApiController');
 
 
 
@@ -20,7 +20,7 @@ module.exports = {
         Promise.all([banners, products])
         .then(([banners,products]) => {
             return res.render('index', {
-                bannerImages : banners.length ? banners : null,
+                bannerImages : banners.length ? banners : [],
                 products,
                 toThousand
         })
@@ -34,15 +34,23 @@ module.exports = {
     },
     admin : async(req,res) => {
         try {
-            const banner = leerJSON("banner")
 
+            const banners = await db.Banner.findAll()
+            const customBanner = banners.map(banner => {
+                return {
+                    id: banner.id,
+                    name : banner.name,
+                    image : existsSync('public/images/banners/' + banner.file) ? banner.file : null,
+                    URL : banner.URL,
+                }
+            })
+            
             const products = await db.Product.findAll({
                 include: ['category']
             });
             return res.render('dashboard', {
                 products,
-                bannerImage : existsSync('public/images/banners/' + banner.file) ? banner.file : null,
-                
+                banner : customBanner,
             });
         } catch (error) {
             console.error(error);

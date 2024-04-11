@@ -15,7 +15,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Banner.init({
+    name: { type: DataTypes.STRING, allowNull: true},
     file: { type: DataTypes.STRING, allowNull: false},
+    URL: { type: DataTypes.STRING(500), allowNull: true},
   }, {
     sequelize,
     modelName: 'Banner',

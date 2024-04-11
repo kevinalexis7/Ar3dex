@@ -36,14 +36,19 @@ const addBanner = async(req,res) => {
        
 
         const newBanner = db.Banner.create({
-            file : req.files[0].filename
+            placeholder : req.body.placeholder,
+            file : req.files[0].filename,
+            URL : req.body.url,
         })        
 
-        console.log(req.files[0]);
         return res.status(200).json({
             ok : true,
-            msg : 'imagen agregada con éxito',
-            file : req.files[0].filename,
+            meta : {
+                status : 200,
+                total : newBanner.length,
+                url : `${req.protocol}://${req.get('host')}/api/banners`
+            },
+            data : newBanner
         })
     } catch (error) {
         return res.status(error.status|| 500).json({

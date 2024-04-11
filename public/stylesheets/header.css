@@ -83,24 +83,6 @@ body {
 color: white;
 }
 
-/* header-admin */
-.navbar-custom {
-  background: linear-gradient(to right, rgb(26, 1, 39), #f217fd);
-}
-
-.navbar-custom ul li a{
-  color: rgb(254, 254, 254);
-}
-
-.card-header-custom {
-  background: linear-gradient(to right, rgb(65, 2, 50), #e73eea);
-  color: white; 
-}
-
-
-
-
-
 @media (min-width: 768px) {
   .header_main {
     display: flex;

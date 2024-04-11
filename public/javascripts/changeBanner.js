@@ -13,6 +13,7 @@ inputChangeBanner.addEventListener("change", async (e) => {
   });
   const result = await response.json()
 
+  console.log('>>>>>>>>>>>>>>>>>>>>>',result)
   if(result) imgBanner.src = "/images/banners/" + result.file
 
   myModal.hide()
