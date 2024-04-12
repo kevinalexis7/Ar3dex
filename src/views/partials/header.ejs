@@ -5,10 +5,17 @@
 
       <button id="toggle-menu" class="hamburguer"><i class="fa fa-bars"></i></button>
         
-
+      <% if (locals.userLogin) { %>
+        <% if (userLogin.role === 2) { %>
+        </a>
+        <span class="iconos">
+          <a href="/admin" class="carrito"><i class="fa-solid fa-computer"></i></i></a>
+          
+          <% }%>
+          <% }%>
       </a>
       <span class="iconos">
-        <a href="/carrito" class="carrito"><i class="fa-solid fa-cart-plus"></i></a>
+        <a href="/carrito" class="carrito px-2"><i class="fa-solid fa-cart-plus"></i></a>
 
       
       </span>
