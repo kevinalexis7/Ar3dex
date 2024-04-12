@@ -3,8 +3,9 @@
     <div class="header_main">
       <a href="/"><img src="/images/Logo.png" alt="logo" class="logo" /></a>
 
-      <a href="#" class="hamburguer">
-        <i class="fa fa-bars"></i>
+      <button id="toggle-menu" class="hamburguer"><i class="fa fa-bars"></i></button>
+        
+
       </a>
       <span class="iconos">
         <a href="/carrito" class="carrito"><i class="fa-solid fa-cart-plus"></i></a>
@@ -14,8 +15,8 @@
     </div>
   </section>
 
-  <div class="barra">
-    <nav class="nav_bar">
+  <div id="menu"  class="barra">
+    <nav  class="nav_bar">
       <ul>
         <div class="div_ul">
           <li><a class="li_header" href="/">Inicio</a></li>
@@ -67,3 +68,16 @@
     </form>
   </div>
 </header>
+<script>
+  
+  const toggleMenuButton = document.querySelector('#toggle-menu');
+  const menu = document.querySelector('#menu');
+
+  toggleMenuButton.addEventListener('click', () => {
+  menu.classList.toggle('open');
+  
+});
+
+
+
+</script>
