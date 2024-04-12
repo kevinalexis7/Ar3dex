@@ -8,11 +8,12 @@ const inputLink = document.getElementById("link");
 const imgBanner = document.getElementById("bannerImage-file");
 const myModal = new bootstrap.Modal(document.getElementById('exampleModal'))
 
-inputChangeBanner.addEventListener("change", async (e) => {
+document.getElementById('send-info').addEventListener("click", async (e) => {
   const data = new FormData();
-  data.append("name", inputChangeBanner.value);
   data.append("file", inputChangeBanner.files[0]);
-  data.append("URL", inputChangeBanner.value);
+  data.append("URL", inputLink.value);
+  data.append("name", inputName.value);
+
 
   const response = await fetch("/apis/banners", {
 
@@ -23,7 +24,7 @@ inputChangeBanner.addEventListener("change", async (e) => {
 
   console.log(result)
 
-  if(result) imgBanner.src = "/images/banners/" + result.file
+  //if(result) imgBanner.src = "/images/banners/" + result.file
 
   myModal.hide()
 

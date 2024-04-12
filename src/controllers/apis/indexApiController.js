@@ -36,9 +36,9 @@ const addBanner = async(req,res) => {
        
 
         const newBanner = db.Banner.create({
-            placeholder : req.body.placeholder,
+            name : req.body.name,
             file : req.files[0].filename,
-            URL : req.body.url,
+            URL : req.body.URL,
         })        
 
         return res.status(200).json({
