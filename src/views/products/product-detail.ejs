@@ -42,8 +42,8 @@
                     <% } %>
                 </div>
                 
-                <a href="/carrito">
-                <button class="detalleProducto__main__articule__div__precios__btnAgregarCarrito">
+                <a href="" onclick="event.preventDefault()">
+                <button onclick="addToCart('<%=id%>', '<%=name%>', '<%=price%>', '<%=mainImage%>')" class="detalleProducto__main__articule__div__precios__btnAgregarCarrito">
                     AGREGAR AL CARRITO </button>
                 </a>
                 <img src="/images/Formas-de-pago-opciones-scaled.png" alt="formas de pago"
