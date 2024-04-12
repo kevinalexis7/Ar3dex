@@ -2,25 +2,32 @@ const {existsSync, readFileSync} = require('fs');
 const { Op } = require("sequelize")
 const db = require('../database/models')
 const path = require('path');
-const { listBanner } = require('../controllers/apis/indexApiController');
 
 
 
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = {
-    index: (req,res) => {
+    index: async (req,res) => {
 
-        const banners = db.Banner.findAll()
+        const banners = await db.Banner.findAll()
+        const customBanner = banners.map(banner => {
+            return {
+                id: banner.id,
+                name : banner.name,
+                image : existsSync('public/images/banners/' + banner.file) ? banner.file : [],
+                URL : banner.URL,
+            }
+        })
         const products = db.Product.findAll({
             where: {
                 offer: true
             }
         })
-        Promise.all([banners, products])
-        .then(([banners,products]) => {
+        Promise.all([customBanner, products])
+        .then(([customBanner,products]) => {
             return res.render('index', {
-                bannerImages : banners.length ? banners : [],
+                banner : customBanner,
                 products,
                 toThousand
         })

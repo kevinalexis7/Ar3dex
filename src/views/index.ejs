@@ -9,29 +9,26 @@
     <main class="index__main">
         <!-- Sección oferta -->
         <section class="index__main__section--banner">
-          
-          <% if (bannerImages < 2) { %>
-            <a href="#Oferta_pokemon"><img src="/images/banners/<%= bannerImages.file || 'default-banner.svg' %>" alt="Oferta_pokémon"></a>
-            <% }else{ %>
-              <div class="swiper bannerSwiper">
-                  <div class="swiper-wrapper">
-                    <% bannerImages.forEach(image => { %>
-                      <div class="swiper-slide">
-                        <a href="#Oferta_pokemon"><img src="/images/banners/<%= image.file || 'default-banner.svg' %>" alt="Oferta_pokémon"></a>
-                      </div>
-                    </div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-pagination"></div>
-                    <div class="autoplay-progress">
-                    <svg viewBox="0 0 48 48">
-                    <circle cx="24" cy="24" r="20"></circle>
-                    </svg>
-                    <span></span>
-                  </div>
-                  </div>
-            <% }) %>         
-            <% } %>
+          <div class="swiper bannerSwiper">
+            <div class="swiper-wrapper">
+
+              <% banner.forEach(banner => { %>
+                <div class="swiper-slide">
+                  <a href="#Oferta_pokemon"><img src="/images/banners/<%= banner.image || 'default-banner.svg' %>" alt="Oferta_pokémon"></a>
+                </div>
+              <% }) %>
+
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+            <div class="autoplay-progress">
+            <svg viewBox="0 0 48 48">
+            <circle cx="24" cy="24" r="20"></circle>
+            </svg>
+            <span></span>
+          </div>
+          </div>
         </section>
         <!-- Carrusel - Productos destacados -->
         <section class="index__main__section--products">
@@ -69,19 +66,6 @@
         <% }) %>
       </div>
     </div>
-        <div class="container products-wrapper">
-          <div class="row">
-            <div class="col-12">
-              <h2 class="products-title">Ofertas</h2>
-            </div>
-        <% products.forEach(product => { %>
-          <%- include('./partials/cardProduct-grid',{product}) %>
-        <% }) %>
-      </div>
-    </div>
-
-
-
 
         <!-- Categorías destacadas -->
         <section class="index__main__section--categories">

@@ -27,20 +27,43 @@
 </header>
 
 <!-- Modal -->
-<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-body">
-        <img src="/images/banners/<%=// bannerImage || 'default-banner.svg' %>"  class="img-fluid" id="bannerImage-file" alt="bannerImage">
+        <div class="input-group mb-3">
+          <div class="form-floating">
+            <input type="text" class="form-control" id="floatingInputGroup1" placeholder="Username">
+            <label for="floatingInputGroup1">Nombre</label>
+          </div>
+          <span class="input-group-text">
+            <i class="fa-solid fa-circle-info fa-xl" 
+              tabindex="0" 
+              data-bs-toggle="popover" 
+              data-bs-trigger="hover focus" 
+              data-bs-content="Meramente estético. Aparecerá al posar el mouse sobre el banner y en el caso de que al usuario no se le cargue la imagen"></i>
+          </span>
+        </div>
+        <div class="input-group mb-3">
+          <div class="form-floating">
+            <input type="text" class="form-control" id="floatingInputGroup1" placeholder="Username">
+            <label for="floatingInputGroup1">Link</label>
+          </div>
+          <span class="input-group-text">
+            <i class="fa-solid fa-circle-info fa-xl" 
+              tabindex="0" 
+              data-bs-toggle="popover" 
+              data-bs-trigger="hover focus" 
+              data-bs-content="¿A dónde querés que te lleve el banner al hacerle click?. Puedes dejarlo vacio y no hará nada"></i>
+          </span>
+        </div>
         <input type="file" id="bannerImage" hidden>
-      
+        <label for="bannerImage" type="button" class="btn btn-dark">Cambiar</label>
       </div>
       <div class="modal-footer text-end">
-        <label for="bannerImage" type="button" class="btn btn-dark">Cambiar</label>
+        <label for="" type="submit" class="btn btn-dark">Listo</label>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-
       </div>
     </div>
   </div>
 </div>
- -->
