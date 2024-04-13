@@ -65,6 +65,7 @@ module.exports = {
     },
     searchAdmin : (req,res) => {
 
+        const banner = leerJSON("banner")
         const {keyword} = req.query;
         db.Product.findAll({
             where: {
@@ -80,7 +81,8 @@ module.exports = {
             .then(result => {
                 return res.render('dashboard', {
                     products : result,
-                    keyword
+                    keyword,
+                    bannerImage : existsSync('public/images/banners/' + banner.file) ? banner.file : null,
                 })
             })
             .catch(error => console.log(error))
