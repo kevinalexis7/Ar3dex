@@ -40,8 +40,11 @@
   transform: scale(1.04);
 }
 
-.card-banner-custom .img-box {
+.img-banner-box {
   padding: 3px;
   background: #0000008c;
   border-radius: 5px;
+  overflow: hidden;
+  aspect-ratio: 16/7;
+  align-content: center;
 }

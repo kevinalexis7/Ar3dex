@@ -14,7 +14,9 @@
 
               <% banner.forEach(banner => { %>
                 <div class="swiper-slide">
-                  <a href="#Oferta_pokemon"><img src="/images/banners/<%= banner.image || 'default-banner.svg' %>" alt="Oferta_pokémon"></a>
+                  <div class="img-banner-box">
+                    <a href="<%= banner.link %>"><img src="/images/banners/<%= banner.image || 'default-banner.svg' %>" alt="<%= banner.name %>"></a>
+                  </div>
                 </div>
               <% }) %>
 
