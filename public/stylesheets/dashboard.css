@@ -40,11 +40,14 @@
   transform: scale(1.04);
 }
 
-.img-banner-box {
+.img-banner-box, .modal-img-banner-box {
   padding: 3px;
-  background: #0000008c;
   border-radius: 5px;
   overflow: hidden;
   aspect-ratio: 16/7;
   align-content: center;
+}
+.card-banner-custom .img-banner-box, .modal-img-banner-box  {
+  margin: auto;
+  background: #0000008c;
 }

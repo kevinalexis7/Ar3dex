@@ -1,0 +1,48 @@
+<div class="modal fade" id="modal-banner-edit" tabindex="-1" aria-labelledby="modalBannerAdd" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="header-admin--img-container">
+          <img id="img-banner-edit-preview" src="">
+        </div>
+      </div>
+      <div class="modal-body">
+        <div class="header-admin--img-container">
+          <img id="img-banner-preview">
+        </div>
+        <div class="input-group mb-3">
+          <div class="form-floating">
+            <input type="text" class="form-control" id="nameEdit" placeholder="Nombre" value="">
+            <label for="name">Nombre</label>
+          </div>
+          <span class="input-group-text">
+            <i class="fa-solid fa-circle-info fa-xl" 
+            tabindex="0" 
+            data-bs-toggle="popover" 
+            data-bs-trigger="hover focus" 
+            data-bs-content="Meramente estético. Aparecerá al posar el mouse sobre el banner y en el caso de que al usuario no se le cargue la imagen"></i>
+          </span>
+        </div>
+        <div class="input-group mb-3">
+          <div class="form-floating">
+            <input type="text" class="form-control" id="linkEdit" placeholder="Link" value="">
+            <label for="link">Link</label>
+          </div>
+          <span class="input-group-text">
+              <i class="fa-solid fa-circle-info fa-xl" 
+              tabindex="0" 
+              data-bs-toggle="popover" 
+              data-bs-trigger="hover focus" 
+              data-bs-content="¿A dónde querés que te lleve el banner al hacerle click?. Puedes dejarlo vacio y no hará nada"></i>
+            </span>
+          </div>
+          <input type="file" accept="image/*" id="edit-bannerImage" hidden onchange="previewImage(event,'img-banner-edit-preview')" >
+          <label for="edit-bannerImage" type="button" class="btn btn-dark">Agregar imagen</label>
+        </div>
+        <div class="modal-footer text-end">
+          <label for="" type="submit" id="submit-edit-banner" class="btn btn-dark">Listo</label>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>

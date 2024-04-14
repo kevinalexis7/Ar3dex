@@ -35,7 +35,7 @@ const addBanner = async(req,res) => {
     try {
        
 
-        const newBanner = db.Banner.create({
+        const newBanner = await db.Banner.create({
             name : req.body.name,
             file : req.files[0].filename,
             URL : req.body.URL,
@@ -58,9 +58,43 @@ const addBanner = async(req,res) => {
     }
 }
 
+const editBanner = async(req,res) => {
+    try {
+       
+
+        const updatedBanner = await db.Banner.update(
+            {
+            name : req.body.name,
+            file : req.files[0] ? req.files[0].filename : file,
+            URL : req.body.URL,
+        },
+        {
+            where : {id:req.body.id}
+        }
+    )        
+
+        return res.status(200).json({
+            ok : true,
+            meta : {
+                status : 200,
+                total : updatedBanner.length,
+                url : `${req.protocol}://${req.get('host')}/api/banners`
+            },
+            data : updatedBanner
+        })
+    } catch (error) {
+        return res.status(error.status|| 500).json({
+            ok: false,
+            msg: error.message || 'Upss, rompiste todito, ;('
+        })
+    }
+}
+
+
 module.exports = {
     listBanner,
-    addBanner
+    addBanner,
+    editBanner
 }
 
 /* 
