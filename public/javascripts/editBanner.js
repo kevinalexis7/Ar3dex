@@ -115,9 +115,14 @@ window.onload = async () => {
             });
             const result = await response.json();
 
-            if(result) {
-                ShowBannerCards
+            if (result) {
+                const modalBannerEdit = new bootstrap.Modal(document.getElementById('modal-banner-edit'))
+                modalBannerEdit.hide()
+                location.reload()
+                
             }
+            
+            
         });
         });
       }
