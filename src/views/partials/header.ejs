@@ -7,17 +7,17 @@
         
 
           <span class="iconos">
-            <% if (locals.userLogin) { %>
-              <% if (userLogin.role === 2) { %>
-              </a>
-              <span class="iconos">
-                <a href="/admin" class="carrito"><i class="fa-solid fa-computer"></i></i></a>
-            
-                <% }%>
-                <% }%>
+                      <% if (locals.userLogin) { %>
+            <% if (userLogin.role === 2) { %>
             </a>
+            <span class="iconos">
+              <a href="/admin" class="carrito"><i class="fa-solid fa-computer"></i></i></a>
+          
+              <% }%>
+              <% }%>
+          </a>
             <a href="/carrito" class="carrito px-2"><i class="fa-solid fa-cart-plus"></i></a>
-            <span id="cart-total-items" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: none;">
+            <span id="cart-total-items" class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-danger" style="display: none;">
           
         </span>
       
