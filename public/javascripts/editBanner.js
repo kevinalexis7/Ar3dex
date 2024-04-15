@@ -168,8 +168,8 @@ window.onload = async () => {
         dataIdDelete.append("id", idDelete);
         dataIdDelete.append("name", name);
         console.log(dataIdDelete)
-        const response = await fetch("/apis/banners", {
-          method: "delete",
+        const response = await fetch("/apis/bannersDelete", {
+          method: "DELETE",
           body: dataIdDelete,
         });
         const result = await response.json();

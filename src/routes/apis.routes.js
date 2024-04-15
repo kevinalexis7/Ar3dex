@@ -13,7 +13,7 @@ router
   .get('/banners', listBanner)
   .post('/banners', bannerUpload.any(), addBanner)
   .put('/banners', bannerUpload.any(), editBanner)
-  .delete('/banners', deleteBanner)
+  .delete('/bannersDelete', bannerUpload.any(), deleteBanner)
 
 
 module.exports = router;
