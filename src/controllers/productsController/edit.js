@@ -8,7 +8,7 @@ module.exports = (req, res) => {
     const {file} = JSON.parse(bannerJSON)
     Promise.all([
         db.Category.findAll({ order: ['name'] }),
-        db.Product.findByPk(req.params.id)
+        db.Product.findByPk(req.params.id, { include: [{ model: db.Image, as: 'images' }] })
     ])
     .then(([categories, product]) => {
         if (!product) {
@@ -26,7 +26,10 @@ module.exports = (req, res) => {
             discount: product.discount,
             categoryId: product.categoryId,
             offer: product.offer,
-            description: product.description
+            description: product.description,
+            mainImage: product.mainImage,
+            images: product.images,
+            ...product.dataValues,
         });
     })
     .catch(error => {

@@ -88,14 +88,38 @@
                             </div>
 
                             <div class="col-12 col-md-3 mb-3">
-                                <input name="mainImage" type="file" data-identificador="Imagen principal" class="form-control" id="mainImage" hidden>
+                                <input name="mainImage" type="file" data-identificador="Imagen principal" class="form-control" id="mainImage" hidden onchange="previewImage(event,'product-add-img-preview')">
                                 <label class="btn btn-lg btn-outline-light w-100 <%= locals.errors &&  errors.mainImage ? 'btn-outline-danger' : 'btn-outline-light' %>" for="mainImage">Imagen principal</label>
                                 <small class="text-danger"><%= (locals.errors &&  errors.mainImage) && errors.mainImage.msg %></small>
                             </div>
                             <div class="col-12 col-md-3 mb-3">
-                                <input  name="images" type="file" data-identificador="Imagenes" class="form-control" id="images" hidden multiple>
+                                <input  name="images" type="file" data-identificador="Imagenes" class="form-control" id="images" hidden multiple onchange="previewSecondaryImage(event, 'product-add-secondary-img-preview')" >
                                 <label class="btn btn-lg btn-outline-light w-100" for="images">Imágenes</label>
                             </div>
+
+ <!-- IMG PREVIEW -->
+
+                                        <div class="d-flex all-img-container">
+
+                                            <div class="product-add-img-preview--container d-flex pb-3">
+                                                <div class="product-add-img-preview--mark">
+                                                    <img class="product-add-img-preview" id="product-add-img-preview" src="/images/products/<%= mainImage %>">
+                                                </div>
+                                            </div>
+                                            <div class="product-add-img-preview--container d-flex pb-3">
+                                                <div class="product-add-img-preview--mark">
+                                                    <img class="product-add-img-preview" id="product-add-secondary-img-preview-0"  src="<%=images[0] && `/images/products/${images[0].name}`%>">
+                                                </div>
+                                                <div class="product-add-img-preview--mark">
+                                                    <img class="product-add-img-preview" id="product-add-secondary-img-preview-1" src="<%=images[1] && `/images/products/${images[1].name}`%>">
+                                                </div>
+                                                <div class="product-add-img-preview--mark">
+                                                    <img class="product-add-img-preview" id="product-add-secondary-img-preview-2" src="<%=images[2] && `/images/products/${images[2].name}`%>">
+                                                </div>
+                                            </div>
+                                        </div>
+
+
                             <div class="col-12 mb-3">
                                 <div class="form-floating">
                                     <textarea name="description" data-identificador="Descripción" class="form-control bg-dark-subtle <%= (locals.errors &&  errors.description) && 'is-invalid' %>" id="description" style="height: 200px;"><%= locals.old ? old.description : description %></textarea>
@@ -115,6 +139,7 @@
         </section>
     </main>
     <script src="/javascripts/editValidator.js"></script>
+    <script src="/javascripts/imgPreview.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <%- include('../partials/scripts') %>
 
