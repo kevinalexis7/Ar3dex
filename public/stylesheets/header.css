@@ -21,7 +21,13 @@ body {
   margin-top: 10px;
 }
 .iconos {
-  display: none;
+  /* display: none; */
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  right: 5px;
+  top: 70px;
+  font-size: 30px;
 }
 .nav_bar {
   /* display: none; */
@@ -57,7 +63,7 @@ body {
   display: block;
   flex-wrap: wrap;
   justify-content: center;
-  height: 120px;
+  /* height: 120px; */
   /* margin-bottom: 75px; */
   max-height: 45px;
   text-align: center;
@@ -82,7 +88,9 @@ body {
   border: solid 1px black;
   display: block;
   background-color: var(--colorVioleta);
-  display: none;
+  /* display: none; */
+  border: solid 2px #37448b;
+  border-top: solid 0 transparent;
 }
 .search-bar i {
   margin-inline: 10px;
@@ -135,7 +143,8 @@ color: white;
     display: flex;
     position: absolute;
     justify-content: center;
-    right: 50px;
+    right: 10px;
+    top: 20px;
     
     font-size: 30px;
   }
@@ -155,6 +164,7 @@ color: white;
   }
   .search-bar {
     display: flex;
+    border: none;
   }
   .search-bar-input {
     background: linear-gradient(
