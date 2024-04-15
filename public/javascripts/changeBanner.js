@@ -26,7 +26,7 @@ submitAddBanner.addEventListener("click", async (e) => {
   });
   const result = await response.json()
   
-  modalBannerAdd.hide()
+  location.reload()
 });
 
 

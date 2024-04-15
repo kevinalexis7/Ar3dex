@@ -15,16 +15,17 @@ window.onload = async () => {
     imgpreview.src = objectURL;
   }
 
-  try {
-    const response = await fetch("http://localhost:3000/apis/banners");
+
+    try {
+      const response = await fetch("http://localhost:3000/apis/banners");
     const result = await response.json();
     const { meta, data } = result;
-
-    const ShowBannerCards = data.forEach((banner) => {
+    
+    data.forEach((banner) => {
       const cols = document.createElement("div");
       cols.setAttribute("class", "col-12 col-sm-6 col-lg-3");
       bannerConteiner.appendChild(cols);
-
+      
       const p4 = document.createElement("div");
       p4.setAttribute("class", "p-4 py-5 position-relative");
       cols.appendChild(p4);
@@ -45,11 +46,11 @@ window.onload = async () => {
       modalEditTriger.setAttribute("imageRecipient", `${banner.file}`);
       p4.appendChild(modalEditTriger);
       
-
+      
       const cardBannerCustom = document.createElement("div");
       cardBannerCustom.setAttribute("class", "card card-banner-custom p-2");
       modalEditTriger.appendChild(cardBannerCustom);
-
+      
       const crossSpan = document.createElement("span");
       modalDeleteTriger.setAttribute(
         "class",
@@ -57,11 +58,11 @@ window.onload = async () => {
       );
       modalDeleteTriger.setAttribute("style", "color:#bd2e2e");
       modalDeleteTriger.appendChild(crossSpan);
-
+      
       const imgBannerBox = document.createElement("div");
       imgBannerBox.setAttribute("class", "img-banner-box");
       cardBannerCustom.appendChild(imgBannerBox);
-
+      
       const cardImgTop = document.createElement("img");
       cardImgTop.setAttribute("src", `/images/banners/${banner.file}`);
       cardImgTop.setAttribute("class", `card-img-top`);
@@ -69,11 +70,11 @@ window.onload = async () => {
       cardImgTop.setAttribute("id", `cardImgTop`);
       cardImgTop.setAttribute("onchange", `previewImage(event, cardImgTop)`);
       imgBannerBox.appendChild(cardImgTop);
-
+      
       const cardBody = document.createElement("div");
       cardBody.setAttribute("class", "card-body");
       cardBannerCustom.appendChild(cardBody);
-
+      
       const h6Name = document.createElement("h6");
       h6Name.setAttribute("class", "card-title text-truncate");
       if (banner.name) {
@@ -81,10 +82,10 @@ window.onload = async () => {
       } else {
         h6Name.setAttribute("class", "card-title text-secondary-emphasis");
         h6Name.innerHTML =
-          "Sin nombre  <i class='fa-solid fa-triangle-exclamation' style='color: #822121;'>";
+        "Sin nombre  <i class='fa-solid fa-triangle-exclamation' style='color: #822121;'>";
       }
       cardBody.appendChild(h6Name);
-
+      
       const h6URL = document.createElement("h6");
       h6URL.setAttribute("class", "card-title text-truncate");
       if (banner.URL) {
@@ -95,28 +96,28 @@ window.onload = async () => {
           "card-title text-truncate text-secondary-emphasis"
         );
         h6URL.innerHTML =
-          "Sin URL  <i class='fa-solid fa-triangle-exclamation' style='color: #822121;'>";
+        "Sin URL  <i class='fa-solid fa-triangle-exclamation' style='color: #822121;'>";
       }
       cardBody.appendChild(h6URL);
-
+      
       const submitEditBanner = document.getElementById("submit-edit-banner");
       const inputImageEdit = document.getElementById("edit-bannerImage");
       const inputURLEdit = document.getElementById("linkEdit");
       const inputNameEdit = document.getElementById("nameEdit");
       const modalImgPreview = document.getElementById("img-banner-edit-preview");
-
+      
       const modalBannerEdit = document.getElementById("modal-banner-edit");
       if (modalBannerEdit) {
         modalBannerEdit.addEventListener("show.bs.modal", (event) => {
           const button = event.relatedTarget;
-
+          
           const name = button.getAttribute("nameRecipient");
           const URL = button.getAttribute("URLRecipient");
           const image = button.getAttribute("imageRecipient");
-
+          
           inputNameEdit && (inputNameEdit.value = name);
           inputURLEdit && (inputURLEdit.value = URL);
-          modalImgPreview.src = "images/banners/" + image;
+          modalImgPreview.src = "/images/banners/" + image;
 
           submitEditBanner.addEventListener("mousedown", async () => {
             const id = button.getAttribute("idRecipient");
@@ -137,11 +138,10 @@ window.onload = async () => {
 
             console.log(result)
             if (result) {
-              const modalBannerEdit = new bootstrap.Modal(
-                document.getElementById("modal-banner-edit")
-              );
-              modalBannerEdit.hide();
-              location.reload();
+              const modalBannerEdit = new bootstrap.Modal(document.getElementById("modal-banner-edit"));
+            location.reload();
+            
+              
             }
           });
         });
@@ -173,8 +173,7 @@ window.onload = async () => {
           body: dataIdDelete,
         });
         const result = await response.json();
-        console.log(dataIdDelete)
-        console.log(result)
+        if(result)location.reload()
       });
   });
 }

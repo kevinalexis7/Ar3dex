@@ -4,12 +4,11 @@
 
   <body>
     <%- include('./partials/header-admin') %>
-    <h1>dashboard</h1>
-
+    
     <main class="container">
       <section>
         <div class="container overflow-hidden">
-          <div class="row gy-1" id="banners-card-root" onchange="reload(event)">
+          <div class="row gy-1" id="banners-card-root">
             <!-- Contenido JavaScript -->
           </div>
         </div>
@@ -102,7 +101,5 @@
 
     <%- include('./partials/scripts') %>
     <script src="/javascripts/changeBanner.js"></script>
-    <script src="/javascripts/editBanner.js"></script>
-    <script src="/javascripts/deleteBanner.js"></script>
   </body>
 </html>

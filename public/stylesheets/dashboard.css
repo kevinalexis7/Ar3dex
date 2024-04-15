@@ -66,7 +66,19 @@
   background: #0000008c;
 }
 
-
-
+.dashboard__main__form--product-add .all-img-container{
+  gap: 15px;
+}
+.dashboard__main__form--product-add .product-add-img-preview--mark {
+  border-radius: 5px;
+  aspect-ratio: 4/3;
+  width: 150px;
+  height: 150px;
+  background: #0000008c;
+  border: 3px solid rgb(44, 44, 44);
+}
+.dashboard__main__form--product-add .product-add-img-preview--container {
+  gap: 2px;
+}
 
 

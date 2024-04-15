@@ -86,5 +86,26 @@ module.exports = {
                 })
             })
             .catch(error => console.log(error))
+    },
+    bannersManager : async(req,res) => {
+        try {
+
+            const banners = await db.Banner.findAll()
+            const customBanner = banners.map(banner => {
+                return {
+                    id: banner.id,
+                    name : banner.name,
+                    image : existsSync('public/images/banners/' + banner.file) ? banner.file : null,
+                    URL : banner.URL,
+                }
+            })
+            
+            return res.render('bannersManager', {
+                banner : customBanner,
+            });
+        } catch (error) {
+            console.error(error);
+        }
     }
+
 }

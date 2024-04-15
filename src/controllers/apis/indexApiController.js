@@ -1,6 +1,3 @@
-const { existsSync, unlinkSync } = require("fs");
-const { leerJSON, escribirJSON } = require("../../data");
-const { Op } = require("sequelize");
 const db = require("../../database/models");
 
 const listBanner = async (req, res) => {

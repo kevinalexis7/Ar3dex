@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head', { title : 'dashboard' }) %>
+
+  <body>
+    <%- include('./partials/header-admin') %>
+    
+    <main class="container">
+      <section>
+        <div class="container overflow-hidden">
+          <div class="row gy-1" id="banners-card-root">
+            <!-- Contenido JavaScript -->
+          </div>
+        </div>
+      </section>
+      <%- include('./partials/modal-banner-edit.ejs') %>
+      <%- include('./partials/modal-warning-delete-banner.ejs') %>
+    </main>
+
+    <%- include('./partials/scripts') %>
+    <script src="/javascripts/changeBanner.js"></script>
+    <script src="/javascripts/editBanner.js"></script>
+
+  </body>
+</html>
