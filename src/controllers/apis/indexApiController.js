@@ -53,7 +53,7 @@ const addBanner = async(req,res) => {
     } catch (error) {
         return res.status(error.status|| 500).json({
             ok: false,
-            msg: error.message || 'Upss, rompiste todito, ;('
+            msg: error.message || 'No se pudo agregar banner'
         })
     }
 }
@@ -85,7 +85,32 @@ const editBanner = async(req,res) => {
     } catch (error) {
         return res.status(error.status|| 500).json({
             ok: false,
-            msg: error.message || 'Upss, rompiste todito, ;('
+            msg: error.message || 'No se pudo editar banner'
+        })
+    }
+}
+
+
+const deleteBanner = async(req,res) => {
+    try {
+       
+        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",req.body)
+        await db.Banner.destroy(
+        {
+            where : {id : req.body.id}
+        }
+    )        
+        return res.status(200).json({
+            ok : true,
+            meta : {
+                status : 200,
+                url : `${req.protocol}://${req.get('host')}/api/banners`
+            }
+        })
+    } catch (error) {
+        return res.status(error.status|| 500).json({
+            ok: false,
+            msg: error.message || 'No se pudo eliminar banner'
         })
     }
 }
@@ -94,7 +119,8 @@ const editBanner = async(req,res) => {
 module.exports = {
     listBanner,
     addBanner,
-    editBanner
+    editBanner,
+    deleteBanner
 }
 
 /* 

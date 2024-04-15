@@ -1,7 +1,7 @@
 const express = require('express');
 const { getAllProducts, getOneProduct } = require('../controllers/apis/productsApiController');
 const { checkEmail } = require('../controllers/apis/usersApisController');
-const { addBanner, listBanner, editBanner } = require('../controllers/apis/indexApiController');
+const { addBanner, listBanner, editBanner, deleteBanner } = require('../controllers/apis/indexApiController');
 const bannerUpload = require('../middlewares/bannerUpload');
 const router = express.Router();
 
@@ -13,6 +13,7 @@ router
   .get('/banners', listBanner)
   .post('/banners', bannerUpload.any(), addBanner)
   .put('/banners', bannerUpload.any(), editBanner)
+  .delete('/banners', deleteBanner)
 
 
 module.exports = router;

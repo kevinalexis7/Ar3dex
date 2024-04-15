@@ -1,22 +1,19 @@
 window.onload = async () => {
   const bannerConteiner = document.getElementById("banners-card-root");
 
-
-
   function previewImage(event, elementId) {
     const input = event.target;
-    
+
     imgpreview = document.getElementById(elementId);
-    
+
     if (!input.files.length) return;
-    
+
     file = input.files[0];
-    
+
     objectURL = URL.createObjectURL(file);
-    
+
     imgpreview.src = objectURL;
   }
-
 
   try {
     const response = await fetch("http://localhost:3000/apis/banners");
@@ -28,22 +25,38 @@ window.onload = async () => {
       cols.setAttribute("class", "col-12 col-sm-6 col-lg-3");
       bannerConteiner.appendChild(cols);
 
-      const p3 = document.createElement("div");
-      p3.setAttribute("class", "p-3");
-      cols.appendChild(p3);
-
-      const modalTriger = document.createElement("div");
-      modalTriger.setAttribute("data-bs-toggle", "modal");
-      modalTriger.setAttribute("data-bs-target", `#modal-banner-edit`);
-      modalTriger.setAttribute("idRecipient", `${banner.id}`);
-      modalTriger.setAttribute("nameRecipient", `${banner.name}`);
-      modalTriger.setAttribute("URLRecipient", `${banner.URL}`);
-      modalTriger.setAttribute("imageRecipient", `${banner.file}`);
-      p3.appendChild(modalTriger);
+      const p4 = document.createElement("div");
+      p4.setAttribute("class", "p-4 py-5 position-relative");
+      cols.appendChild(p4);
+      
+      const modalDeleteTriger = document.createElement("div");
+      modalDeleteTriger.setAttribute("data-bs-toggle", "modal");
+      modalDeleteTriger.setAttribute("data-bs-target", `#modal-banner-delete`);
+      modalDeleteTriger.setAttribute("deleteIdRecipient", `${banner.id}`);
+      modalDeleteTriger.setAttribute("nameRecipient", `${banner.name}`);
+      p4.appendChild(modalDeleteTriger);
+      
+      const modalEditTriger = document.createElement("div");
+      modalEditTriger.setAttribute("data-bs-toggle", "modal");
+      modalEditTriger.setAttribute("data-bs-target", `#modal-banner-edit`);
+      modalEditTriger.setAttribute("idRecipient", `${banner.id}`);
+      modalEditTriger.setAttribute("nameRecipient", `${banner.name}`);
+      modalEditTriger.setAttribute("URLRecipient", `${banner.URL}`);
+      modalEditTriger.setAttribute("imageRecipient", `${banner.file}`);
+      p4.appendChild(modalEditTriger);
+      
 
       const cardBannerCustom = document.createElement("div");
       cardBannerCustom.setAttribute("class", "card card-banner-custom p-2");
-      modalTriger.appendChild(cardBannerCustom);
+      modalEditTriger.appendChild(cardBannerCustom);
+
+      const crossSpan = document.createElement("span");
+      modalDeleteTriger.setAttribute(
+        "class",
+        "fa-solid fa-circle-xmark fs-3 delete-button"
+      );
+      modalDeleteTriger.setAttribute("style", "color:#bd2e2e");
+      modalDeleteTriger.appendChild(crossSpan);
 
       const imgBannerBox = document.createElement("div");
       imgBannerBox.setAttribute("class", "img-banner-box");
@@ -62,22 +75,31 @@ window.onload = async () => {
       cardBannerCustom.appendChild(cardBody);
 
       const h6Name = document.createElement("h6");
-      h6Name.setAttribute("class", "card-title text-secondary-emphasis");
-      banner.name
-        ? (h6Name.innerHTML = banner.name)
-        : (h6Name.innerHTML =
-            "Sin nombre  <i class='fa-solid fa-triangle-exclamation' style='color: #822121;'>");
+      h6Name.setAttribute("class", "card-title text-truncate");
+      if (banner.name) {
+        h6Name.innerHTML = banner.name;
+      } else {
+        h6Name.setAttribute("class", "card-title text-secondary-emphasis");
+        h6Name.innerHTML =
+          "Sin nombre  <i class='fa-solid fa-triangle-exclamation' style='color: #822121;'>";
+      }
       cardBody.appendChild(h6Name);
 
       const h6URL = document.createElement("h6");
-      h6URL.setAttribute("class", "card-title text-secondary-emphasis");
-      banner.URL
-        ? (h6URL.innerHTML = banner.URL)
-        : (h6URL.innerHTML =
-            "Sin URL  <i class='fa-solid fa-triangle-exclamation' style='color: #822121;'>");
+      h6URL.setAttribute("class", "card-title text-truncate");
+      if (banner.URL) {
+        h6URL.innerHTML = banner.URL;
+      } else {
+        h6URL.setAttribute(
+          "class",
+          "card-title text-truncate text-secondary-emphasis"
+        );
+        h6URL.innerHTML =
+          "Sin URL  <i class='fa-solid fa-triangle-exclamation' style='color: #822121;'>";
+      }
       cardBody.appendChild(h6URL);
 
-      const submitEditBanner = document.getElementById("submit-edit-banner");  
+      const submitEditBanner = document.getElementById("submit-edit-banner");
       const inputImageEdit = document.getElementById("edit-bannerImage");
       const inputURLEdit = document.getElementById("linkEdit");
       const inputNameEdit = document.getElementById("nameEdit");
@@ -86,9 +108,8 @@ window.onload = async () => {
       const modalBannerEdit = document.getElementById("modal-banner-edit");
       if (modalBannerEdit) {
         modalBannerEdit.addEventListener("show.bs.modal", (event) => {
-          
           const button = event.relatedTarget;
-        
+
           const name = button.getAttribute("nameRecipient");
           const URL = button.getAttribute("URLRecipient");
           const image = button.getAttribute("imageRecipient");
@@ -97,43 +118,68 @@ window.onload = async () => {
           inputURLEdit && (inputURLEdit.value = URL);
           modalImgPreview.src = "images/banners/" + image;
 
-          submitEditBanner.addEventListener("mouseup", async () => {
-
+          submitEditBanner.addEventListener("mousedown", async () => {
             const id = button.getAttribute("idRecipient");
 
             const data = new FormData();
             if (inputImageEdit) {
-                data.append("file", inputImageEdit.files[0]);
+              data.append("file", inputImageEdit.files[0]);
             }
             data.append("id", id);
             data.append("URL", inputURLEdit.value);
             data.append("name", inputNameEdit.value);
-            
+
             const response = await fetch("/apis/banners", {
-                method: "PUT",
-                body: data,
+              method: "PUT",
+              body: data,
             });
             const result = await response.json();
 
+            console.log(result)
             if (result) {
-                const modalBannerEdit = new bootstrap.Modal(document.getElementById('modal-banner-edit'))
-                modalBannerEdit.hide()
-                location.reload()
-                
+              const modalBannerEdit = new bootstrap.Modal(
+                document.getElementById("modal-banner-edit")
+              );
+              modalBannerEdit.hide();
+              location.reload();
             }
-            
-            
-        });
+          });
         });
       }
       
       
+      const submitDeleteBanner = document.getElementById("submit-delete-banner");
+
+      const itemBannerDeleted = document.getElementById("item-banner-deleted")
+      
+      const modalBannerDelete = document.getElementById("modal-banner-delete");
+      if (modalBannerDelete) {
+        modalBannerDelete.addEventListener("show.bs.modal", (event) => {
+          const button = event.relatedTarget;
+          
+          const name = button.getAttribute("nameRecipient");
+          
+          itemBannerDeleted.innerHTML = '"' + name + '"'
+      
+          submitDeleteBanner.addEventListener("mousedown", async () => {
+        const idDelete = button.getAttribute("deleteIdRecipient");
         
-        
-        
-       
-    });
-    } catch (error) {
-        console.log(error);
-    }
+        const dataIdDelete = new FormData();
+        dataIdDelete.append("id", idDelete);
+        dataIdDelete.append("name", name);
+        console.log(dataIdDelete)
+        const response = await fetch("/apis/banners", {
+          method: "delete",
+          body: dataIdDelete,
+        });
+        const result = await response.json();
+        console.log(dataIdDelete)
+        console.log(result)
+      });
+  });
+}
+});
+} catch (error) {
+console.log(error);
+}
 };

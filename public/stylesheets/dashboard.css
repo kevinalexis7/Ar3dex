@@ -20,34 +20,53 @@
 .navbar-custom ul li a {
   color: rgb(254, 254, 254);
 }
-
+.delete-button {
+  position: absolute;
+  top: 35px;
+  right: 10px;
+  z-index: 100;
+}
+.delete-button:hover {
+  text-shadow:1px 1px 15px #979797;
+}
 .card-header-custom {
   background: linear-gradient(to right, rgb(65, 2, 50), #e73eea);
   color: white;
 }
 
 .card-banner-custom {
-  background: linear-gradient(to right, rgb(65, 2, 50), #280c28);
+  transition: 500ms;
+  position: relative;
+  background: linear-gradient(to right, #410232, #280c28);
   color: var(--colorGris);
-  box-shadow: 1px 1px 10px rgb(114, 114, 114);
+  box-shadow: 1px 1px 10px #727272;
+  text-shadow: 1px 1px 1px #1e1e1e72;
+  cursor: pointer;
+  padding-top: 40px;
 }
 
 .card-banner-custom:hover {
   transition: 500ms;
-  background: linear-gradient(to right, rgb(65, 2, 50), #280c28);
+  background: linear-gradient(to right, #410232, #280c28);
   color: #fff;
-  box-shadow: 1px 1px 15px rgb(151, 151, 151);
-  transform: scale(1.04);
+  box-shadow: 1px 1px 15px #979797;
+  transform: scale(1.1);
+
 }
 
+
 .img-banner-box, .modal-img-banner-box {
-  padding: 3px;
   border-radius: 5px;
   overflow: hidden;
   aspect-ratio: 16/7;
   align-content: center;
+
 }
 .card-banner-custom .img-banner-box, .modal-img-banner-box  {
-  margin: auto;
   background: #0000008c;
 }
+
+
+
+
+
