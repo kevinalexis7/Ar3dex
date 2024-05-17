@@ -7,8 +7,7 @@
 
 * **Kevin Alexis Espinola** . Edad: *22 años*. Ciudad: *Jose. C. Paz*. Me gusta: Video juegos. 
 * **Martín Romero** . Edad: *34 años*. Ciudad: *Merlo, Buenos Aires*. Me gusta: Volver al futuro, la pizza y los cubos. 
-* Y la participación especial de **Carlos Garcia**
-
+* **Carlos Fabian Garcia** . Edad: *26 años*. Ciudad: *Corzuela-Chaco*. Me gusta: Video juegos, la tecnologia y la eletronica .
 
 
 
